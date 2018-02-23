@@ -1,3 +1,42 @@
-<p>
-  basic-form works!
-</p>
+<div class="row">
+  <div class="col-6">
+    <form>
+      <fieldset>
+        <legend>SignUp</legend>
+
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+          <label for="select">Gender</label>
+          <select id="select" class="form-control">
+            <option *ngFor="let g of genderList" [value]="g">{{g}}</option>
+          </select>
+        </div>
+
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox"> Confirm that you've read the Terms and Conditions
+          </label>
+        </div>
+
+        <div class="form-group">
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
