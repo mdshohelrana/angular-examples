@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicFormComponent implements OnInit {
 
-  private genderList: string[];
+  public genderList: string[];
 
   constructor() { }
 
@@ -15,4 +15,7 @@ export class BasicFormComponent implements OnInit {
     this.genderList = ['Male', 'Female', 'Others'];
   }
 
+  onSubmit(){
+    
+  }
 }

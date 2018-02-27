@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-6">
-    <form>
+    <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm.value)">
       <fieldset>
         <legend>SignUp</legend>
 
