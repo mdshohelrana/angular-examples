@@ -12,19 +12,25 @@
 
         <div class="form-group">
           <label for="inputPassword">Password</label>
-          <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" ngModel #password="ngModel"
+            required>
+          <div class="alert alert-danger" [hidden]="password.valid || password.pristine">Password is required</div>
         </div>
 
         <div class="form-group">
           <label for="confirmPassword">Confirm Password</label>
-          <input type="password" class="form-control" id="confirmPassword" placeholder="Password">
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Password" name="confirmPassword" ngModel #confirmPassword="ngModel"
+            required>
+          <div class="alert alert-danger" [hidden]="confirmPassword.valid || confirmPassword.pristine">Confirm Password is required</div>
         </div>
 
         <div class="form-group">
           <label for="select">Gender</label>
-          <select id="select" class="form-control">
+          <select id="select" class="form-control" name="gender" ngModel #gender="ngModel" required>
+            <option></option>
             <option *ngFor="let g of genderList" [value]="g">{{g}}</option>
           </select>
+          <div class="alert alert-danger" [hidden]="gender.valid ||gender.pristine">Gender is required</div>
         </div>
 
         <div class="form-group checkbox">
