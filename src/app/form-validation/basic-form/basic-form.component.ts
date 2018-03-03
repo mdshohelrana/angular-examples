@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../shared/models/user';
 
 @Component({
   selector: 'app-basic-form',
@@ -8,14 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class BasicFormComponent implements OnInit {
 
   public genderList: string[];
+  public user: User;
 
   constructor() { }
 
   ngOnInit() {
     this.genderList = ['Male', 'Female', 'Others'];
+    this.user = new User();
   }
 
-  onSubmit(){
-    
+  onSubmit() {
+
   }
 }

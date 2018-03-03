@@ -6,7 +6,8 @@
 
         <div class="form-group">
           <label for="inputEmail">Email</label>
-          <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+          <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" ngModel #email="ngModel" required>
+          <div class="alert alert-danger" [hidden]="email.valid || email.pristine">Email is required</div>
         </div>
 
         <div class="form-group">
