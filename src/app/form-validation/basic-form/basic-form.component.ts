@@ -10,6 +10,8 @@ export class BasicFormComponent implements OnInit {
 
   public genderList: string[];
   public user: User;
+  public formValue: any;
+  public submitted: boolean = false;
 
   constructor() { }
 
@@ -18,7 +20,7 @@ export class BasicFormComponent implements OnInit {
     this.user = new User();
   }
 
-  onSubmit() {
-
+  onSubmit(formValues: any) {
+    this.formValue = formValues
   }
 }
