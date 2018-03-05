@@ -12,6 +12,7 @@ export class BasicFormComponent implements OnInit {
   public user: User;
   public formValue: any;
   public submitted: boolean = false;
+  public validationMessage: string;
 
   constructor() { }
 
@@ -20,7 +21,12 @@ export class BasicFormComponent implements OnInit {
     this.user = new User();
   }
 
-  onSubmit(formValues: any) {
-    this.formValue = formValues
+  onSubmit(signUpForm: any): void {
+    if (signUpForm.valid) {
+      this.formValue = signUpForm.value;
+      this.validationMessage = 'The form is valid';
+    } else {
+      this.validationMessage = 'The form is not valid';
+    }
   }
 }
