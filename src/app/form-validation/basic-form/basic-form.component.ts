@@ -8,8 +8,7 @@ import { User } from '../../shared/models/user';
 })
 export class BasicFormComponent implements OnInit {
 
-  public genderList: string[];
-  public user: User;
+  public genderList: string[];  
   public formValue: any;
   public submitted: boolean = false;
   public validationMessage: string;
@@ -17,8 +16,7 @@ export class BasicFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.genderList = ['Male', 'Female', 'Others'];
-    this.user = new User();
+    this.genderList = ['Male', 'Female', 'Others'];    
   }
 
   onSubmit(signUpForm: any): void {
