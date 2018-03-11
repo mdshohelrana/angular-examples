@@ -1,0 +1,78 @@
+<div class="row">
+  <div class="col-6">
+    <h5>Template driven form</h5>
+    <hr/>
+    <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm.valid)" novalidate>
+      <fieldset>
+        <legend>SignUp</legend>
+
+        <div class="form-group">
+          <label for="inputEmail">Email</label>
+          <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="email" #email="ngModel" [(ngModel)]="user.email" required
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+          <div class="alert alert-danger" [hidden]="email.valid || (email.pristine && !signUpForm.submitted)">Email is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input type="password" class="form-control" id="inputPassword" placeholder="Password" name="password" [(ngModel)]="user.pwd" #password="ngModel"
+            required>
+          <div class="alert alert-danger" [hidden]="password.valid || (password.pristine && !signUpForm.submitted)">Password is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Password" name="confirmPassword" [(ngModel)]="user.confirmPwd" #confirmPassword="ngModel"
+            required>
+          <div class="alert alert-danger" [hidden]="confirmPassword.valid || (confirmPassword.pristine && !signUpForm.submitted)">Confirm Password is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="select">Gender</label>
+          <select id="select" class="form-control" name="gender" [(ngModel)]="user.gender" #gender="ngModel" required>
+            <option></option>
+            <option *ngFor="let g of genderList" [value]="g">{{g}}</option>
+          </select>
+          <div class="alert alert-danger" [hidden]="gender.valid || (gender.pristine && !signUpForm.submitted)">Gender is required</div>
+        </div>
+
+        <div class="form-group checkbox">
+          <label>
+            <input type="checkbox" name="terms" [(ngModel)]="user.terms" #terms="ngModel" required> Confirm that you've read the Terms and Conditions
+          </label>
+          <div class="alert alert-danger" [hidden]="terms.valid || (terms.pristine && !signUpForm.submitted)">You need to check this box to continue</div>
+        </div>
+
+        <div class="form-group">
+          <button type="reset" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5>Output -
+          <b>{{validationMessage}}</b>
+        </h5>
+        <hr>
+        <p>{{ formValue | json }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5>Purpose</h5>
+        <hr>
+        <p>This is the very basic template driven form of angular, This is not like that angular reactive form.</p>
+      </div>
+    </div>
+  </div>
+</div>
