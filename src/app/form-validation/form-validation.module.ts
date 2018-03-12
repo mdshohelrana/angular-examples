@@ -6,6 +6,7 @@ import { FormValidationRoutingModule } from './form-validation-routing.module';
 import { BasicFormComponent } from './basic-form/basic-form.component';
 import { FormValidationComponent } from './form-validation.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 @NgModule({
   imports: [
@@ -14,6 +15,11 @@ import { TemplateFormComponent } from './template-form/template-form.component';
     ReactiveFormsModule,
     FormValidationRoutingModule
   ],
-  declarations: [FormValidationComponent, BasicFormComponent, TemplateFormComponent]
+  declarations: [
+    FormValidationComponent
+    , BasicFormComponent
+    , TemplateFormComponent
+    , ReactiveFormComponent
+  ]
 })
 export class FormValidationModule { }
