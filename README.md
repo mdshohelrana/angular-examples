@@ -8,6 +8,7 @@ Well organized and easy to understand all of the html element by using Angular5,
   * [Basic Architecture](https://github.com/mdshohelrana/examples-of-angular/wiki/Basic-Architecture)
   * [Features of Angular](https://github.com/mdshohelrana/examples-of-angular/wiki/Features-of-Angular)
   * [Angular Lifecycle Hook](https://github.com/mdshohelrana/examples-of-angular/wiki/Angular-Lifecycle-Hook)
+  * [Binding](https://github.com/mdshohelrana/examples-of-angular/wiki/Binding)
 * [Medium]
 * [Advance]
 * [Cheatsheet](https://github.com/mdshohelrana/examples-of-angular/wiki/Cheatsheet)
