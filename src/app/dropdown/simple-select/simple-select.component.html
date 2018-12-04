@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-6">
+      <h5>Simple select</h5>
+      <hr/>
+    <form #simpleSelectForm="ngForm" (ngSubmit)="onSubmit(simpleSelectForm)" novalidate>
+      <fieldset>
+        <!-- <legend>SignUp</legend> -->
+        <div class="form-group">
+            <label for="selectCar">Select Your favorite car</label>
+            <select 
+              id="selectCar" 
+              name="singleCarSelect" 
+              class="form-control" 
+              ngModel 
+              #singleCarSelect="ngModel" 
+              required  
+              (change)="onChangeSingleCar($event.target.value)"
+              (focus)="onFocus($event.target.value)"
+              (blur)="onBlur($event.target.value)"
+              (mouseenter)="onMouseenter($event.target.value)"
+              (click)="onClick($event.target.value)"
+              (dblclick)="onDoubleClick($event.target.value)"
+              >
+              <option *ngFor="let car of cars" [value]="car.id" >{{ car.brand }}</option>
+            </select>
+          </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Output - {{ selectedCar }}
+          </h5>
+          <hr>
+          <p></p>
+        </div>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Description</h5>
+          <hr>
+          <p>This is the very basic Slect of angular.</p>
+          <p><strong>onChangeSingleCar()</strong> - Select change event</p>
+          <p><strong>onFocus()</strong> - Select focus event</p>
+          <p><strong>onBlur()</strong> - Select blur event</p>
+          <p><strong>onMouseenter()</strong> - Select mouseenter event</p>
+          <p><strong>onClick()</strong> - Select click event</p>
+          <p><strong>onDoubleClick()</strong> - Select double click event</p>
+        </div>
+      </div>
+    </div>
+  </div>

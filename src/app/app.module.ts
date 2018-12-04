@@ -8,6 +8,8 @@ import { NavComponent } from './nav/nav.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SimpleSelectComponent } from './dropdown/simple-select/simple-select.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NavComponent,
     FooterComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SimpleSelectComponent
   ],
   imports: [
     BrowserModule,
-    // FormsModule,
+    FormsModule,
     // ReactiveFormsModule,
     AppRoutingModule
   ],
