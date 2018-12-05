@@ -23,6 +23,7 @@ import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-sel
     SimpleSelectComponent,
     PrerequisiteComponent,
     MultipleSelectComponent
+    PrerequisiteComponent
   ],
   imports: [
     BrowserModule,
