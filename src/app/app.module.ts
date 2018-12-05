@@ -9,9 +9,11 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SimpleSelectComponent } from './dropdown/simple-select/simple-select.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrerequisiteComponent } from './prerequisite/prerequisite.component';
 import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-select.component';
+import { SimpleAutocompleteComponent } from './autocomplete/simple-autocomplete/simple-autocomplete.component';
+import { SearchFilterPipe } from './pipes/filter.pipes';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-sel
     PageNotFoundComponent,
     SimpleSelectComponent,
     PrerequisiteComponent,
-    MultipleSelectComponent
+    MultipleSelectComponent,
+    SimpleAutocompleteComponent,
+    SearchFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    // ReactiveFormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
