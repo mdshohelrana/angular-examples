@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-md-6">
+      <h5>Simple AutoComplete</h5>
+      <hr/>
+    <form [formGroup]='stateForm' autocomplete="new-password" novalidate>
+      <fieldset>
+        <!-- <legend>SignUp</legend> -->
+        <div class="form-group">
+          
+          <label for="selectCar">Select Your favorite car</label>
+          <!-- <input type="text" class="form-control"> -->
+            <!-- <select 
+              id="selectCar" 
+              name="singleCarSelect" 
+              class="form-control" 
+              ngModel 
+              #singleCarSelect="ngModel" 
+              required  
+              (change)="onChangeSingleCar($event.target.value)"
+              (focus)="onFocus($event.target.value)"
+              (blur)="onBlur($event.target.value)"
+              (mouseenter)="onMouseenter($event.target.value)"
+              (click)="onClick($event.target.value)"
+              (dblclick)="onDoubleClick($event.target.value)"
+              >
+              <option *ngFor="let car of cars" [value]="car.id" >{{ car.brand }}</option>
+            </select> -->
+          </div>
+      </fieldset>
+      <section class="autocomplete-wrapper">
+          <div class="keyword-wrapper form-group">
+            <input 
+            type="text" 
+            class="form-control" 
+            id="search" 
+            name="search"
+            formControlName='search'
+            (click)='openDropDown()'
+            (focus)="onFocus($event.target.value)"
+            (blur)="onBlur($event.target.value)"
+            (keyup)="onKeyUp($event.target.value)"
+            placeholder="Search for artists..." 
+            autofocus/>
+          </div>
+         <ul *ngIf="wordLenght > 2" class="autocomplete-reult">
+            <li  (click)='selectValue(s)' class='search-results ' *ngFor="let s of states | searchFilter: getSearchValue()">{{s}}</li>
+         </ul>
+      </section>
+    </form>
+   
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Output </h5>
+          <hr>
+
+        </div>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Description</h5>
+          <hr>
+  
+      </div>
+    </div>
+  </div>
