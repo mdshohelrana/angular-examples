@@ -10,10 +10,10 @@ Well organized and easy to understand all of the html element by using Angular7,
   * [Features of Angular](https://github.com/mdshohelrana/examples-of-angular/wiki/Features-of-Angular)
   * [Angular Lifecycle Hook](https://github.com/mdshohelrana/examples-of-angular/wiki/Angular-Lifecycle-Hook)
   * [Binding](https://github.com/mdshohelrana/examples-of-angular/wiki/Binding)
-* [Medium]
+  * [Cheatsheet](https://github.com/mdshohelrana/examples-of-angular/wiki/Cheatsheet)
 * [Basic]
+* [Medium]
 * [Advance]
-* [Cheatsheet](https://github.com/mdshohelrana/examples-of-angular/wiki/Cheatsheet)
 
 # Contributors
 * [Shohel Rana](https://github.com/mdshohelrana/)
