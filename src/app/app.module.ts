@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { SimpleSelectComponent } from './dropdown/simple-select/simple-select.component';
 import { FormsModule } from '@angular/forms';
 import { PrerequisiteComponent } from './prerequisite/prerequisite.component';
+import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-select.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PrerequisiteComponent } from './prerequisite/prerequisite.component';
     HomeComponent,
     PageNotFoundComponent,
     SimpleSelectComponent,
-    PrerequisiteComponent
+    PrerequisiteComponent,
+    MultipleSelectComponent
   ],
   imports: [
     BrowserModule,
