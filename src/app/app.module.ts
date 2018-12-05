@@ -14,6 +14,7 @@ import { PrerequisiteComponent } from './prerequisite/prerequisite.component';
 import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-select.component';
 import { SimpleAutocompleteComponent } from './autocomplete/simple-autocomplete/simple-autocomplete.component';
 import { SearchFilterPipe } from './pipes/filter.pipes';
+import { ClickOutsideDirective } from './directives/click.outside.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SearchFilterPipe } from './pipes/filter.pipes';
     PrerequisiteComponent,
     MultipleSelectComponent,
     SimpleAutocompleteComponent,
-    SearchFilterPipe
+    SearchFilterPipe,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,

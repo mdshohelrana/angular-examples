@@ -9,17 +9,23 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 export class SimpleAutocompleteComponent implements OnInit {
 
   stateForm: FormGroup;
-  wordLenght:number= 0;
 
-  showDropDown = false;
-  states = ['Alabama', 'Alaska',  'Arizona', 'Arkansas', 'California', 'Colorado',
-  'Connecticut', 'Delaware', 'District of Columbia', 'Florida'
-  , 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky'
-  , 'Louisiana', 'Maine', 'Marshall Islands', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-  'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina',
-  'North Dakota', 'Northern Mariana Islands', 'Ohio', 'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico',
-  'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia', 'Washington',
-   'West Virginia', 'Wisconsin', 'Wyoming'];
+  wordLenght:number= 0;
+  
+  selectedValue:string = '';
+  isFocus = false;
+  isBlur = false;
+  isKeyup = false;
+  isKeydown = false;
+  isSelectValue = false;
+
+  showSearchResult = false;
+  cities = ['Dhaka', 'Chittagong',  'Khulna', 'Rajshahi', 'Mymensingh', 'Barisal',
+  'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Rangpur', 'Comilla', 'Narayanganj', 'Gazipur', 
+  'Bogra', 'Kushtia', 'Jessore', 'Coxs Bazar', 'Brahmanbaria', 'Dinajpur', 'Chapai Nawabganj', 'Tangail', 'Sirajganj', 
+  'Feni', 'Noakhali', 'Faridpur', 'Bagherhat','Jhenaidah', 'Narail', 'Chuadanga', 'Magura', 'Nowapara', 'Shatkhira', 
+  'Shambhuganj', 'Trishal', 'Fulbaria', 'Muktagachha', 'Nandail', 'Netrokona', 'Gaffargaon', 'Sherpur', 'Ghatail', 
+  'Kalihati', 'Sakhipur','Bhuapur', 'Elenga', 'Karatia', 'Tennessee', 'Aricha', 'Basail', 'Bhairab', 'Munshiganj', 'Gopalganj', 'Madaripur',];
 
   constructor( private fb: FormBuilder) {
     this.initForm()
@@ -35,24 +41,45 @@ export class SimpleAutocompleteComponent implements OnInit {
  ngOnInit() {
 
  }
- onKeyUp(word){
-  this.wordLenght = word.length;
- }
 
  selectValue(value) {
    this.stateForm.patchValue({"search": value});
-   this.showDropDown = false;
+   this.showSearchResult = false;
+   this.selectedValue = value;
+
+   this.isSelectValue = true;
  }
-  closeDropDown() {
-    this.showDropDown = !this.showDropDown;
+  hideDropdown() {
+    this.showSearchResult = !this.showSearchResult;
   }
 
   openDropDown() {
-    this.showDropDown = false;
+    this.showSearchResult = false;
   }
 
   getSearchValue() {
     return this.stateForm.value.search;
+  }
+
+  //on focus 
+  onFocus(e){
+    this.isFocus = true;
+  }
+
+  //on Blur 
+  onBlur(){
+    this.isBlur = true;
+  }
+
+  //on keyup
+  onKeyUp(word){
+    this.wordLenght = word.length;
+    this.isKeyup = true;
+  }
+
+  //on keydown
+  onKeyDown(e){
+    this.isKeydown = true;
   }
 
 }
