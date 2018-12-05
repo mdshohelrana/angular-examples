@@ -1,6 +1,6 @@
 # List of Angular Examples
 
-Well organized and easy to understand all of the html element by using Angular5, Here we will try to cover all of example that will help you lot to build your skills
+Well organized and easy to understand all of the html element by using Angular7, Here we will try to cover all of example that will help you lot to build your skills
 
 * [Learn Angular](https://github.com/mdshohelrana/examples-of-angular/wiki)
   * [What is Angular](https://github.com/mdshohelrana/examples-of-angular/wiki/angular)
@@ -14,3 +14,8 @@ Well organized and easy to understand all of the html element by using Angular5,
 * [Basic]
 * [Advance]
 * [Cheatsheet](https://github.com/mdshohelrana/examples-of-angular/wiki/Cheatsheet)
+
+# Contributors
+* [Shohel Rana](https://github.com/mdshohelrana/)
+* [Kazi Imon Hossain](https://github.com/imonhossain/)
+
