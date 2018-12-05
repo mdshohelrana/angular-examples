@@ -15,6 +15,7 @@ import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-sel
 import { SimpleAutocompleteComponent } from './autocomplete/simple-autocomplete/simple-autocomplete.component';
 import { SearchFilterPipe } from './pipes/filter.pipes';
 import { ClickOutsideDirective } from './directives/click.outside.directive';
+import { AccordionComponent } from './accordion/accordion.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ClickOutsideDirective } from './directives/click.outside.directive';
     MultipleSelectComponent,
     SimpleAutocompleteComponent,
     SearchFilterPipe,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,
