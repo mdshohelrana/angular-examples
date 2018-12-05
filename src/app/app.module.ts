@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SimpleSelectComponent } from './dropdown/simple-select/simple-select.component';
 import { FormsModule } from '@angular/forms';
+import { PrerequisiteComponent } from './prerequisite/prerequisite.component';
+import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-select.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    SimpleSelectComponent
+    SimpleSelectComponent,
+    PrerequisiteComponent,
+    MultipleSelectComponent
   ],
   imports: [
     BrowserModule,

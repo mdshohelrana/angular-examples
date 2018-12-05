@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-simple-select',
@@ -38,29 +37,35 @@ export class SimpleSelectComponent implements OnInit {
     this.singleCarSelect = this.cars.find(x => x.id == car).brand;
     this.selectedCar = this.singleCarSelect ;
   }
-
+  isFocus = false;
+  isBlur = false;
+  isMouseenter = false;
+  isClick = false;
+  isDoubleClick = false;
   //on Focus
   onFocus(event){
-  
+    return this.selectedCar;
+    this.isFocus=true;
   }
 
   //on Focus
   onBlur(event){
-
+    this.isBlur=true;
   }
 
   //on Mouse Enter
   onMouseenter(event){
- 
+    this.isMouseenter=true;
   }
 
   //on Click
   onClick(event){
-
+    this.isClick=true;
   }
 
   //on Double Click
   onDoubleClick(event){
-
+    return this.selectedCar;
+    this.isDoubleClick=true;
   }
 }
