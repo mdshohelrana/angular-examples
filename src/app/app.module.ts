@@ -16,7 +16,7 @@ import { SimpleAutocompleteComponent } from './autocomplete/simple-autocomplete/
 import { SearchFilterPipe } from './pipes/filter.pipes';
 import { ClickOutsideDirective } from './directives/click.outside.directive';
 import { AccordionComponent } from './accordion/accordion.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +36,8 @@ import { AccordionComponent } from './accordion/accordion.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
