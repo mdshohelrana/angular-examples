@@ -44,7 +44,6 @@ export class SimpleSelectComponent implements OnInit {
   isDoubleClick = false;
   //on Focus
   onFocus(event){
-    return this.selectedCar;
     this.isFocus=true;
   }
 
@@ -65,7 +64,6 @@ export class SimpleSelectComponent implements OnInit {
 
   //on Double Click
   onDoubleClick(event){
-    return this.selectedCar;
     this.isDoubleClick=true;
   }
 }

@@ -1,0 +1,18 @@
+.autocomplete-wrapper{
+    position: relative;
+}
+.autocomplete-reult{
+    position: absolute;
+    width:100%;
+    max-height: 250px;
+    overflow: auto;
+    background: #fff;
+    top:40px;
+    z-index: 4;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    list-style: none;
+    padding-left: 10px;
+}
+.autocomplete-reult li{
+    cursor: pointer;
+}

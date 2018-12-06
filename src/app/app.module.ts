@@ -9,10 +9,14 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { SimpleSelectComponent } from './dropdown/simple-select/simple-select.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrerequisiteComponent } from './prerequisite/prerequisite.component';
 import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-select.component';
-
+import { SimpleAutocompleteComponent } from './autocomplete/simple-autocomplete/simple-autocomplete.component';
+import { SearchFilterPipe } from './pipes/filter.pipes';
+import { ClickOutsideDirective } from './directives/click.outside.directive';
+import { AccordionComponent } from './accordion/accordion.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +26,18 @@ import { MultipleSelectComponent } from './dropdown/multiple-select/multiple-sel
     PageNotFoundComponent,
     SimpleSelectComponent,
     PrerequisiteComponent,
-    MultipleSelectComponent
+    MultipleSelectComponent,
+    SimpleAutocompleteComponent,
+    SearchFilterPipe,
+    ClickOutsideDirective,
+    AccordionComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    // ReactiveFormsModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="col-md-6">
+      <h5>Simple AutoComplete</h5>
+      <hr/>
+    <form [formGroup]='stateForm' novalidate>
+      <fieldset>
+        <!-- <legend>SignUp</legend> -->
+        <div class="form-group">
+          <label for="selectCar">Search Your State Name</label>
+          <div class="autocomplete-wrapper">
+              <div class="keyword-wrapper form-group">
+                <input 
+                type="text" 
+                class="form-control" 
+                id="search" 
+                name="search"
+                formControlName='search'
+                (click)='openDropDown()'
+                (focus)="onFocus($event.target.value)"
+                (blur)="onBlur($event.target.value)"
+                (keyup)="onKeyUp($event.target.value)"
+                (keydown)="onKeyDown($event.target.value)"
+                placeholder="Search for artists..." 
+                autofocus/>
+              </div>
+              <div clickOutside (clickOutside)="hideDropdown()">
+                <ul *ngIf='wordLenght >= 1 && showSearchResult' class="autocomplete-reult">
+                  <li  (click)='selectValue(s)' class='search-results ' *ngFor="let city of cities | searchFilter: getSearchValue()">{{ city }}</li>
+                </ul>
+              </div>
+          </div>
+        </div>
+      </fieldset>
+      
+    </form>
+   
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Output </h5>
+          <hr>
+          <p *ngIf="isSelectValue">Output of <strong>selectValue() </strong> is <strong class="text-primary">{{ selectedValue }}</strong> </p>
+          <p *ngIf="isFocus">Output of <strong>onFocus() </strong>  is <strong class="text-primary">Yes</strong></p>
+          <p *ngIf="isBlur">Output of <strong>onBlur() </strong> is <strong class="text-primary">Yes</strong></p>
+          <p *ngIf="isKeyup">Output of <strong>onKeyUp() </strong> is <strong class="text-primary">Yes</strong></p>
+          <p *ngIf="isKeydown">Output of <strong>onKeyDown() </strong> is <strong class="text-primary">Yes</strong></p>
+        </div>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Description</h5>
+          <hr>
+          <p>This is the very basic AutoComplete of angular.</p>
+          <p><strong>selectValue()</strong> - cities event</p>
+          <p><strong>onFocus()</strong> - input focus event</p>
+          <p><strong>onBlur()</strong> - input blur event</p>
+          <p><strong>onKeyUp()</strong> - input Keyup event</p>
+          <p><strong>onKeyDown()</strong> - input Keydown event</p>
+      </div>
+    </div>
+  </div>

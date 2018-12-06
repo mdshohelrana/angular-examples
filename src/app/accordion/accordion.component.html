@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="col-md-6">
+      <h5>Accordion Menu</h5>
+      <hr/>
+      <div class="accordion">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <button class="btn btn-link" (click)="toggleCollapse(1)" >
+                Collapsible Group Item #1
+              </button>
+            </h5>
+          </div>
+      
+          <div class="collapse" [class.show3]="showAccordionItem==1" [@openClose]="showAccordionItem == 1 ? 'open' : 'closed'">
+            <div class="card-body">
+              or brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid singl
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0"> 
+              <button class="btn btn-link collapsed" (click)="toggleCollapse(2)">
+                Collapsible Group Item #2
+              </button>
+            </h5>
+          </div>
+          <div class="collapse" [class.show3]="showAccordionItem==2" [@openClose]="showAccordionItem == 2 ? 'open' : 'closed'">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cu
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="mb-0">
+              <button class="btn btn-link collapsed" (click)="toggleCollapse(3)">
+                Collapsible Group Item #3
+              </button>
+            </h5>
+          </div>
+          <div class="collapse" [class.show3]="showAccordionItem==3" [@openClose]="showAccordionItem == 3 ? 'open' : 'closed'">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit,
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Output </h5>
+          <hr>
+          
+        </div>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Description</h5>
+          <hr>
+          
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+
+
+  
