@@ -1,0 +1,59 @@
+<div class="modal-backdrop fade" [class.show]="modalShow"></div>
+<div class="row">
+  <div class="col-md-6">
+      <h5>Simple Modal</h5>
+      <hr/>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" (click)="modalOpen()" data-toggle="modal" data-target="#exampleModal">
+      Launch demo modal
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" [class.show]="modalShow" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document" [@openClose]="modalShow ? 'open' : 'closed'">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" (click)="modalClose()" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalClose()">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Output 
+          </h5>
+          <hr>
+          
+        </div>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Description</h5>
+          <hr>
+          <p>This is the very basic Modal of angular.</p>
+          <p><strong>modalOpen()</strong> - Modal open method</p>
+          <p><strong>modalClose()</strong> - Modal close method</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
