@@ -1,0 +1,9 @@
+.modal.show{
+    display: block !important;
+}
+.modal-backdrop{
+    z-index: -2;
+}
+.modal-backdrop.show{
+    z-index: 1;
+}
