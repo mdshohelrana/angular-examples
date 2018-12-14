@@ -17,6 +17,7 @@ import { SearchFilterPipe } from './pipes/filter.pipes';
 import { ClickOutsideDirective } from './directives/click.outside.directive';
 import { AccordionComponent } from './accordion/accordion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SimpleModalComponent } from './modal/simple-modal/simple-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SimpleAutocompleteComponent,
     SearchFilterPipe,
     ClickOutsideDirective,
-    AccordionComponent
+    AccordionComponent,
+    SimpleModalComponent
   ],
   imports: [
     BrowserModule,

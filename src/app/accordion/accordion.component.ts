@@ -5,8 +5,6 @@ import {trigger, state, style, animate, transition,} from '@angular/animations';
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.css'],
   animations:[
-
-
     trigger('openClose', [
       state('open', style({
         height:'100px',
@@ -25,15 +23,6 @@ import {trigger, state, style, animate, transition,} from '@angular/animations';
       ]),
   
     ]),
-
-
-    
-
-
-
-
-
-
   ]
 })
 export class AccordionComponent implements OnInit {
