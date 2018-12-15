@@ -1,0 +1,17 @@
+<div class="list-of-weather">
+  <div class="weather-search-wrapper">
+      <label>City</label>
+      <div class="input-group">
+        <input type="text" class="form-control" [(ngModel)]="newCityControl"/>
+        <div class="input-group-append">
+            <button type="button" class="btn btn-primary" (click)="onSearch()">Search</button>
+        </div>
+        
+      </div>
+    <div>
+      <span class="information" *ngIf="showResult">Your City is <strong class="text-primary">{{cityName}} </strong> and Temparature is: <strong class="text-primary">{{ allData.temp}}</strong></span> 
+      <br/>
+    </div>
+  </div>
+  <!-- <app-weather-item *ngFor="let weatherItem of weatherItems" [weatherItem]="weatherItem"></app-weather-item> -->
+</div> 

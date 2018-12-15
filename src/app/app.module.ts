@@ -18,6 +18,10 @@ import { ClickOutsideDirective } from './directives/click.outside.directive';
 import { AccordionComponent } from './accordion/accordion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SimpleModalComponent } from './modal/simple-modal/simple-modal.component';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherItemComponent } from './weather/weather-item/weather-item.component';
+import { WeatherListComponent } from './weather/weather-list/weather-list.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,14 +36,18 @@ import { SimpleModalComponent } from './modal/simple-modal/simple-modal.componen
     SearchFilterPipe,
     ClickOutsideDirective,
     AccordionComponent,
-    SimpleModalComponent
+    SimpleModalComponent,
+    WeatherComponent,
+    WeatherItemComponent,
+    WeatherListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { WeatherComponent } from './weather/weather.component';
 import { SimpleModalComponent } from './modal/simple-modal/simple-modal.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'autocomplete/simple-autocomplete', component: SimpleAutocompleteComponent },
   { path: 'modal/simple-modal', component: SimpleModalComponent },
   { path: 'accordion', component: AccordionComponent },
+  { path: 'weather', component: WeatherComponent },
   { path: 'form', loadChildren: './form-validation/form-validation.module#FormValidationModule' },
   { path: '**', component: PageNotFoundComponent },
 ];
