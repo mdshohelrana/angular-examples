@@ -23,6 +23,7 @@ import { WeatherItemComponent } from './weather/weather-item/weather-item.compon
 import { WeatherListComponent } from './weather/weather-list/weather-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.compon
     WeatherComponent,
     WeatherItemComponent,
     WeatherListComponent,
-    OnOffCheckboxComponent
+    OnOffCheckboxComponent,
+    FileUploadComponent
   ],
   imports: [
     BrowserModule,

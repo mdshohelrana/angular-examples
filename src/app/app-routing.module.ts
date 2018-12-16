@@ -1,3 +1,4 @@
+import { FileUploadComponent } from './file-upload/file-upload.component';
 import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.component';
 import { WeatherComponent } from './weather/weather.component';
 import { SimpleModalComponent } from './modal/simple-modal/simple-modal.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'accordion', component: AccordionComponent },
   { path: 'weather', component: WeatherComponent },
   { path: 'switch-button', component: OnOffCheckboxComponent },
+  { path: 'file-upload', component: FileUploadComponent },
   { path: 'form', loadChildren: './form-validation/form-validation.module#FormValidationModule' },
   { path: '**', component: PageNotFoundComponent },
 ];
