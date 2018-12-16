@@ -22,6 +22,7 @@ import { WeatherComponent } from './weather/weather.component';
 import { WeatherItemComponent } from './weather/weather-item/weather-item.component';
 import { WeatherListComponent } from './weather/weather-list/weather-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     SimpleModalComponent,
     WeatherComponent,
     WeatherItemComponent,
-    WeatherListComponent
+    WeatherListComponent,
+    OnOffCheckboxComponent
   ],
   imports: [
     BrowserModule,

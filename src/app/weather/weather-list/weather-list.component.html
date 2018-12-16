@@ -2,14 +2,15 @@
   <div class="weather-search-wrapper">
       <label>City</label>
       <div class="input-group">
-        <input type="text" class="form-control" [(ngModel)]="newCityControl"/>
+        <input type="text" class="form-control" (keyup)="onKeyUp()" [(ngModel)]="newCityControl"/>
         <div class="input-group-append">
-            <button type="button" class="btn btn-primary" (click)="onSearch()">Search</button>
+          <button type="button" class="btn btn-primary" (click)="onSearch()">Search</button>
         </div>
         
       </div>
     <div>
-      <span class="information" *ngIf="showResult">Your City is <strong class="text-primary">{{cityName}} </strong> and Temparature is: <strong class="text-primary">{{ allData.temp}}</strong></span> 
+      <span class="information" *ngIf="showResult && !cityNotFound">Your City is <strong class="text-primary">{{cityName}} </strong> and Temparature is: <strong class="text-primary">{{ allData.temp}}</strong> &deg;C</span> 
+      <span *ngIf="cityNotFound">City Not Found! please input currect city Name</span>
       <br/>
     </div>
   </div>

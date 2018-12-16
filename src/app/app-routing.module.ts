@@ -1,3 +1,4 @@
+import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.component';
 import { WeatherComponent } from './weather/weather.component';
 import { SimpleModalComponent } from './modal/simple-modal/simple-modal.component';
 import { NgModule } from '@angular/core';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'modal/simple-modal', component: SimpleModalComponent },
   { path: 'accordion', component: AccordionComponent },
   { path: 'weather', component: WeatherComponent },
+  { path: 'switch-button', component: OnOffCheckboxComponent },
   { path: 'form', loadChildren: './form-validation/form-validation.module#FormValidationModule' },
   { path: '**', component: PageNotFoundComponent },
 ];

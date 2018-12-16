@@ -15,6 +15,7 @@ export class WeatherListComponent implements OnInit {
   currentTemp;
   cityName;
   showResult = false;
+  cityNotFound = false;
 
   constructor( private weatherService: WeatherService) { }
 
@@ -35,12 +36,21 @@ export class WeatherListComponent implements OnInit {
         data => {
         //   const weatherItem = new WeatherItem(data.name, data.weather[0].description, data.main.temp);
         //  this.weatherService.addWeatherItem(weatherItem);
-        console.log(data);
         this.allData = data;
-        } 
+        this.cityNotFound = false;
+        this.showResult = true; 
+        console.log( "type of", typeof(this.allData));
+
+        return;
+        }
       )
-      this.showResult = true;
-      console.log("all data", this.allData);
+      this.cityNotFound = true;
+
+      
+    //  console.log("all data", this.allData);
+  }
+  onKeyUp(){
+    this.showResult = false;
   }
  
 
