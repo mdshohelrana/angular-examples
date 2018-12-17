@@ -1,0 +1,47 @@
+.switch-button {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.switch-button input[type='checkbox']{
+    width:0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+}
+.switch-button .switch-button__toggle{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px !important;
+}
+.switch-button__toggle:before{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+.switch-button input[type='checkbox']:checked + .switch-button__toggle{
+    background-color: #2196F3;
+}
+.switch-button input[type='checkbox']:checked + .switch-button__toggle:before {
+    -webkit-transform: translateX(18px);
+    -ms-transform: translateX(18px);
+    transform: translateX(26px);
+}

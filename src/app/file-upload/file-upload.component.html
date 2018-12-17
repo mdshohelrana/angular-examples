@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col-md-6">
+      <h5>File Upload</h5>
+      <hr/>
+      <div class="form-group">
+        <label>Choose File</label>
+        <input type="file" class="form-control" (change)="onChangeInput($event.target.files)">
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Output</h5>
+          <hr>
+          <p *ngIf="isSelected">You select <strong class="text-primary">{{ fileToUpload.name }}</strong> Files</p>
+        </div>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12">
+      <div class="card"> 
+        <div class="card-body">
+          <h5>Description</h5>
+          <hr>
+          <p><strong>onChangeInput()</strong> - on change event</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>

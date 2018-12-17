@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-6">
+        <h5>Switch Button</h5>
+        <hr/>
+        <div>
+          <label class="switch-button">
+            <input type="checkbox" (change)="onChange($event)">
+            <div class="switch-button__toggle "></div>
+          </label>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5>Output</h5>
+            <hr>
+            <p>Now the switch is <strong *ngIf="isChecked" class="text-primary">Active</strong><strong *ngIf="!isChecked" class="text-warning">InActive</strong> </p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+      <div class="col-12">
+        <div class="card"> 
+          <div class="card-body">
+            <h5>Description</h5>
+            <hr>
+            <p><strong>onChange()</strong> - on change event</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  

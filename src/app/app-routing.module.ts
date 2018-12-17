@@ -1,3 +1,7 @@
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.component';
+import { WeatherComponent } from './weather/weather.component';
+import { SimpleModalComponent } from './modal/simple-modal/simple-modal.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -15,7 +19,11 @@ const routes: Routes = [
   { path: 'dropdown/simple-select', component: SimpleSelectComponent },
   { path: 'dropdown/multiple-select', component: MultipleSelectComponent },
   { path: 'autocomplete/simple-autocomplete', component: SimpleAutocompleteComponent },
+  { path: 'modal/simple-modal', component: SimpleModalComponent },
   { path: 'accordion', component: AccordionComponent },
+  { path: 'weather', component: WeatherComponent },
+  { path: 'switch-button', component: OnOffCheckboxComponent },
+  { path: 'file-upload', component: FileUploadComponent },
   { path: 'form', loadChildren: './form-validation/form-validation.module#FormValidationModule' },
   { path: '**', component: PageNotFoundComponent },
 ];

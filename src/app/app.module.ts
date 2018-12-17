@@ -17,6 +17,14 @@ import { SearchFilterPipe } from './pipes/filter.pipes';
 import { ClickOutsideDirective } from './directives/click.outside.directive';
 import { AccordionComponent } from './accordion/accordion.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SimpleModalComponent } from './modal/simple-modal/simple-modal.component';
+import { WeatherComponent } from './weather/weather.component';
+import { WeatherItemComponent } from './weather/weather-item/weather-item.component';
+import { WeatherListComponent } from './weather/weather-list/weather-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+import { AnchorDisabledDirective } from './directives/anchor-disabled.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,14 +38,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SimpleAutocompleteComponent,
     SearchFilterPipe,
     ClickOutsideDirective,
-    AccordionComponent
+    AccordionComponent,
+    SimpleModalComponent,
+    WeatherComponent,
+    WeatherItemComponent,
+    WeatherListComponent,
+    OnOffCheckboxComponent,
+    FileUploadComponent,
+    AnchorDisabledDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
