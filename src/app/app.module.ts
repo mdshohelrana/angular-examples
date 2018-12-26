@@ -25,6 +25,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { OnOffCheckboxComponent } from './on-off-checkbox/on-off-checkbox.component';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { AnchorDisabledDirective } from './directives/anchor-disabled.directive';
+import { DdlSelectedTextComponent } from './ddl-selected-text/ddl-selected-text.component';
+import { PsSelectText } from './ddl-selected-text/ps-select-text.directive';
+import { SelectAllTextComponent } from './select-all-text/select-all-text.component';
+import { SelectAllDirectives } from './select-all-text/text-all.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +50,11 @@ import { AnchorDisabledDirective } from './directives/anchor-disabled.directive'
     WeatherListComponent,
     OnOffCheckboxComponent,
     FileUploadComponent,
-    AnchorDisabledDirective
+    AnchorDisabledDirective,
+    DdlSelectedTextComponent,
+    PsSelectText,
+    SelectAllTextComponent,
+    SelectAllDirectives
   ],
   imports: [
     BrowserModule,
