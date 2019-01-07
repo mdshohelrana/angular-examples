@@ -17,5 +17,6 @@ Well organized and easy to understand all of the html element by using Angular7,
 
 # Contributors
 * [Shohel Rana](https://github.com/mdshohelrana/)
+* [Md. Feroz Ahmed](https://github.com/ferozahmed26)
 * [Kazi Imon Hossain](https://github.com/imonhossain/)
 

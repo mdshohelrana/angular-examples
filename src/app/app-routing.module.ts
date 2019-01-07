@@ -13,6 +13,7 @@ import { SimpleAutocompleteComponent } from './autocomplete/simple-autocomplete/
 import { AccordionComponent } from './accordion/accordion.component';
 import { DdlSelectedTextComponent } from './ddl-selected-text/ddl-selected-text.component';
 import { SelectAllTextComponent } from './select-all-text/select-all-text.component';
+import { BoolTextComponent } from './bool-text/bool-text.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'ddl-selected-text', component: DdlSelectedTextComponent },
   { path: 'select-all-text', component: SelectAllTextComponent },
   { path: 'form', loadChildren: './form-validation/form-validation.module#FormValidationModule' },
+  { path: 'on-off-checkbox', component: BoolTextComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

@@ -29,6 +29,8 @@ import { DdlSelectedTextComponent } from './ddl-selected-text/ddl-selected-text.
 import { PsSelectText } from './ddl-selected-text/ps-select-text.directive';
 import { SelectAllTextComponent } from './select-all-text/select-all-text.component';
 import { SelectAllDirectives } from './select-all-text/text-all.directive';
+import { BoolTextComponent } from './bool-text/bool-text.component';
+import { BoolTextDirective } from './bool-text/bool-text.directive';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { SelectAllDirectives } from './select-all-text/text-all.directive';
     DdlSelectedTextComponent,
     PsSelectText,
     SelectAllTextComponent,
-    SelectAllDirectives
+    SelectAllDirectives,
+    BoolTextComponent,
+    BoolTextDirective
   ],
   imports: [
     BrowserModule,
