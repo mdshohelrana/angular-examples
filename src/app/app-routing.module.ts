@@ -14,6 +14,7 @@ import { AccordionComponent } from './accordion/accordion.component';
 import { DdlSelectedTextComponent } from './ddl-selected-text/ddl-selected-text.component';
 import { SelectAllTextComponent } from './select-all-text/select-all-text.component';
 import { BoolTextComponent } from './bool-text/bool-text.component';
+import { HideShowSliderComponent } from './hide-show-slider/hide-show-slider.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'select-all-text', component: SelectAllTextComponent },
   { path: 'form', loadChildren: './form-validation/form-validation.module#FormValidationModule' },
   { path: 'on-off-checkbox', component: BoolTextComponent },
+  { path: 'hide-show-slider', component: HideShowSliderComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

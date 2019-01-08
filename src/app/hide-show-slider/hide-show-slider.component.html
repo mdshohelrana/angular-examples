@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-md-12">
+      <h5>Hide/Show Slider</h5>
+      <hr/>
+      <div class="card">
+        <h6 class="card-header">Title
+          <a href="javascript:void(0)" class="collapse-arrow pull-right" app-hide-show="target1,sliderHide">
+            <i *ngIf="sliderHide" class="fa fa-plus collapse-arrow__icon"></i>
+            <i *ngIf="!sliderHide" class="fa fa-minus collapse-arrow__icon"></i>
+          </a>
+        </h6>
+        <div class="card-body" data-target="target1">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+  </div>
+</div>
+<br/>
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5>Description</h5>
+          <hr>
+          I have made a directives which is responsible for hide or show any element. The <code>app-hide-show</code> is my attribute name which carry two parameters. One name is <code>target1</code> which known as target. Target means you have to use this value to hide and show of any element. Super important is <code>data-target</code> and the the first parameter of the directives name should be same. The others parameter value is optional which is return boolean value which is responsible (+) or (-) icon. 
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+
+
+
+
+
+  
