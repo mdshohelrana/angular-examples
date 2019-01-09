@@ -31,6 +31,8 @@ import { SelectAllTextComponent } from './select-all-text/select-all-text.compon
 import { SelectAllDirectives } from './select-all-text/text-all.directive';
 import { BoolTextComponent } from './bool-text/bool-text.component';
 import { BoolTextDirective } from './bool-text/bool-text.directive';
+import { HideShowDirective } from './directives/hide-show.directive';
+import { HideShowSliderComponent } from './hide-show-slider/hide-show-slider.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { BoolTextDirective } from './bool-text/bool-text.directive';
     SelectAllTextComponent,
     SelectAllDirectives,
     BoolTextComponent,
-    BoolTextDirective
+    BoolTextDirective,
+    HideShowDirective,
+    HideShowSliderComponent
   ],
   imports: [
     BrowserModule,
