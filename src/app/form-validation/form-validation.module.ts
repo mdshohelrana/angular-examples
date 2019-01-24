@@ -7,6 +7,8 @@ import { BasicFormComponent } from './basic-form/basic-form.component';
 import { FormValidationComponent } from './form-validation.component';
 import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { SimpleFormComponent } from './simple-form/simple-form.component';
+import { MasterChildFormComponent } from './master-child-form/master-child-form.component';
 
 @NgModule({
   imports: [
@@ -19,7 +21,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     FormValidationComponent
     , BasicFormComponent
     , TemplateFormComponent
-    , ReactiveFormComponent
+    , ReactiveFormComponent, SimpleFormComponent, MasterChildFormComponent
   ]
 })
 export class FormValidationModule { }
