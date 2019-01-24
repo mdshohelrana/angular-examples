@@ -9,6 +9,7 @@ import { TemplateFormComponent } from './template-form/template-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { MasterChildFormComponent } from './master-child-form/master-child-form.component';
+import { SfValidateDirective } from './sf-validate.directive';
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { MasterChildFormComponent } from './master-child-form/master-child-form.
     FormValidationComponent
     , BasicFormComponent
     , TemplateFormComponent
-    , ReactiveFormComponent, SimpleFormComponent, MasterChildFormComponent
+    , ReactiveFormComponent, SimpleFormComponent, MasterChildFormComponent, SfValidateDirective
   ]
 })
 export class FormValidationModule { }
