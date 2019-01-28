@@ -15,6 +15,7 @@ import { DdlSelectedTextComponent } from './ddl-selected-text/ddl-selected-text.
 import { SelectAllTextComponent } from './select-all-text/select-all-text.component';
 import { BoolTextComponent } from './bool-text/bool-text.component';
 import { HideShowSliderComponent } from './hide-show-slider/hide-show-slider.component';
+import { PhoneNumberFormatComponent } from './phone-number-format/phone-number-format.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'form', loadChildren: './form-validation/form-validation.module#FormValidationModule' },
   { path: 'on-off-checkbox', component: BoolTextComponent },
   { path: 'hide-show-slider', component: HideShowSliderComponent },
+  { path: 'phone-number-format', component: PhoneNumberFormatComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

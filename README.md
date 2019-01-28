@@ -16,7 +16,5 @@ Well organized and easy to understand all of the html element by using Angular7,
 * [Advance]
 
 # Contributors
-* [Shohel Rana](https://github.com/mdshohelrana/)
-* [Md. Feroz Ahmed](https://github.com/ferozahmed26)
-* [Kazi Imon Hossain](https://github.com/imonhossain/)
+[<img alt="shohel rana" src="https://avatars1.githubusercontent.com/u/6725033?v=3&u=ee5df486d864c24c153d9b68bc7fac00b8b29403&s=400" width="117">](https://github.com/mdshohelrana) [<img alt="ferozahmed26" src="https://avatars1.githubusercontent.com/u/26955223?s=460&v=4" width="117">](https://github.com/ferozahmed26) [<img alt="Imon Hossain" src="https://avatars3.githubusercontent.com/u/14268885?s=460&v=4" width="117">](https://github.com/imonhossain)
 
