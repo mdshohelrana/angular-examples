@@ -1,0 +1,87 @@
+<div class="row">
+  <div class="col-md-6">
+    <h5>Basic Scroller</h5>
+    <hr />
+    <perfect-scrollbar style="max-height: 300px;">
+      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+        at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+        accident, sometimes on purpose (injected humour and the like).</p>
+      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+        at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+        accident, sometimes on purpose (injected humour and the like).</p>
+      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+        at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+        accident, sometimes on purpose (injected humour and the like).</p>
+      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking
+        at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as
+        opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing
+        packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum'
+        will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by
+        accident, sometimes on purpose (injected humour and the like).</p>
+    </perfect-scrollbar>
+    <br />
+  </div>
+</div>
+
+<br />
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        <h5>Description</h5>
+        <hr>
+        <p>We use a package called Angular Perfect Scrollbar</p>
+        <ul>
+          <li>
+            install a package called Angular Perfect Scrollbar<br />
+            <code>npm i ngx-perfect-scrollbar</code>
+          </li>
+          <li>
+            Providing the global configuration is optional and when used you should only provide the configuration in
+            your root module.<br />
+          <code>
+                  import &#123; PerfectScrollbarModule &#125; from 'ngx-perfect-scrollbar';  <br/>
+                  import &#123; PERFECT_SCROLLBAR_CONFIG &#125; from 'ngx-perfect-scrollbar';  <br/>
+                  import &#123; PerfectScrollbarConfigInterface &#125; from 'ngx-perfect-scrollbar';  <br/>
+                  <br/>
+                  const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = &#123;  <br/>
+                  &nbsp; &nbsp; suppressScrollX: true  <br/>
+                  &#125;;  <br/>
+                  @NgModule(&#123;  <br/>
+                    ...  <br/>
+                    imports: [  <br/>
+                      ...  <br/>
+                      &nbsp; &nbsp; PerfectScrollbarModule  <br/>
+                    ],  <br/>
+                    providers: [  <br/>
+                      &#123;  <br/>
+                        &nbsp; &nbsp; provide: PERFECT_SCROLLBAR_CONFIG,  <br/>
+                        &nbsp; &nbsp; useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG  <br/>
+                      &#125;  <br/>
+                    ]  <br/>
+                  &#125;)  <br/>
+              </code>
+          </li>
+          <li>
+            Use it on html file<br />
+            <code>
+                &#8249;perfect-scrollbar style="max-width: 600px; max-height: 400px;"&#8250;   <br/>
+                  &nbsp; &nbsp; Scrollable content   <br/>
+                &#8249;/perfect-scrollbar&#8250;   <br/>
+              </code>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</div>

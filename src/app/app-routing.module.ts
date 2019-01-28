@@ -16,6 +16,7 @@ import { SelectAllTextComponent } from './select-all-text/select-all-text.compon
 import { BoolTextComponent } from './bool-text/bool-text.component';
 import { HideShowSliderComponent } from './hide-show-slider/hide-show-slider.component';
 import { PhoneNumberFormatComponent } from './phone-number-format/phone-number-format.component';
+import { PerfetchScrollbarComponent } from './perfetch-scrollbar/perfetch-scrollbar.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'on-off-checkbox', component: BoolTextComponent },
   { path: 'hide-show-slider', component: HideShowSliderComponent },
   { path: 'phone-number-format', component: PhoneNumberFormatComponent },
+  { path: 'perfetch-scrollbar', component: PerfetchScrollbarComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
