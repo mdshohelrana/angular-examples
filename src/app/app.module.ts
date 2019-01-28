@@ -33,6 +33,8 @@ import { BoolTextComponent } from './bool-text/bool-text.component';
 import { BoolTextDirective } from './bool-text/bool-text.directive';
 import { HideShowDirective } from './directives/hide-show.directive';
 import { HideShowSliderComponent } from './hide-show-slider/hide-show-slider.component';
+import { PhoneNumberFormatDirective } from './directives/phone-number-format.directive';
+import { PhoneNumberFormatComponent } from './phone-number-format/phone-number-format.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { HideShowSliderComponent } from './hide-show-slider/hide-show-slider.com
     BoolTextComponent,
     BoolTextDirective,
     HideShowDirective,
-    HideShowSliderComponent
+    HideShowSliderComponent,
+    PhoneNumberFormatDirective,
+    PhoneNumberFormatComponent
   ],
   imports: [
     BrowserModule,
