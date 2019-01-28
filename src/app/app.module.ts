@@ -35,6 +35,17 @@ import { HideShowDirective } from './directives/hide-show.directive';
 import { HideShowSliderComponent } from './hide-show-slider/hide-show-slider.component';
 import { PhoneNumberFormatDirective } from './directives/phone-number-format.directive';
 import { PhoneNumberFormatComponent } from './phone-number-format/phone-number-format.component';
+import { PerfetchScrollbarComponent } from './perfetch-scrollbar/perfetch-scrollbar.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+ 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+  scrollXMarginOffset:30,
+    scrollYMarginOffset:30,
+    minScrollbarLength:20
+};
 
 @NgModule({
   declarations: [
@@ -66,7 +77,8 @@ import { PhoneNumberFormatComponent } from './phone-number-format/phone-number-f
     HideShowDirective,
     HideShowSliderComponent,
     PhoneNumberFormatDirective,
-    PhoneNumberFormatComponent
+    PhoneNumberFormatComponent,
+    PerfetchScrollbarComponent
   ],
   imports: [
     BrowserModule,
@@ -74,9 +86,15 @@ import { PhoneNumberFormatComponent } from './phone-number-format/phone-number-f
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    PerfectScrollbarModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
