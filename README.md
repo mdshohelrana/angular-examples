@@ -22,5 +22,5 @@ Well organized and easy to understand all of the html element by using Angular7,
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore -->
-| [<img src="https://avatars3.githubusercontent.com/u/14268885?s=460&v=4" width="100px;" alt="Imon Hossain"/><br /><sub><b>Imon Hossain</b></sub>](https://imon.me)<br /> [<img src="https://avatars1.githubusercontent.com/u/6725033?s=400&v=4" width="100px;" alt="Md Shohel Rana"/><br /><sub><b>Md Shohel Rana</b></sub>](http://www.shohel.net/)<br /> [<img src="https://avatars1.githubusercontent.com/u/26955223?s=460&v=4" width="100px;" alt="Md Feroz Ahmed"/><br /><sub><b>Md Feroz Ahmed</b></sub>](https://github.com/ferozahmed26)<br />|
+[<img src="https://avatars3.githubusercontent.com/u/14268885?s=460&v=4" width="100px;" alt="Imon Hossain"/><br /><sub><b>Imon Hossain</b></sub>](https://imon.me) [<img src="https://avatars1.githubusercontent.com/u/6725033?s=400&v=4" width="100px;" alt="Md Shohel Rana"/><br /><sub><b>Md Shohel Rana</b></sub>](http://www.shohel.net/) [<img src="https://avatars1.githubusercontent.com/u/26955223?s=460&v=4" width="100px;" alt="Md Feroz Ahmed"/><br /><sub><b>Md Feroz Ahmed</b></sub>](https://github.com/ferozahmed26)<br />
 <!-- ALL-CONTRIBUTORS-LIST:END -->
