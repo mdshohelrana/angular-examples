@@ -18,8 +18,8 @@ Getting started
 Table of contents
 =================
 * [User Inputs](#user-input)
-    * [Color](#text)
-    * [Date](#email)
+    * [Color](#color)
+    * [Date](#date)
     * [Datetime Local](#number)
     * [Month](#text)
     * [Week](#email)
@@ -30,6 +30,14 @@ Table of contents
     * [Search](#text)
     * [Tel](#email)
     * [Url](#number)
+* [Dropdown](#dropdown)
+    * [Simple](#simple)
+    * [Multiselect](#multiselect)
+    * [Editable](#editable)
+* [Autocomplete](#autocomplete)
+* [Date Picker](#autocomplete)
+* [Time Picker](#autocomplete)
+* [Input Restrict](#autocomplete)
 * [Contributing](#contributing)
 * [Development](#development)
 * [Inspiration](#inspiration)
@@ -37,6 +45,21 @@ Table of contents
 ## User Inputs
 ### Color
 ### Date
+### Datetime Local
+### Month
+### Week
+### Time
+### Email
+### Number
+### Range
+### Search
+### Tel
+### Url
+
+## Dropdown
+### Simple
+### Multiselect
+### Editable
 
 ## Contributing
 [<img alt="shohel rana" src="https://avatars1.githubusercontent.com/u/6725033?v=3&u=ee5df486d864c24c153d9b68bc7fac00b8b29403&s=400" width="117">](https://github.com/mdshohelrana) [<img alt="ferozahmed26" src="https://avatars1.githubusercontent.com/u/26955223?s=460&v=4" width="117">](https://github.com/ferozahmed26) [<img alt="Imon Hossain" src="https://avatars3.githubusercontent.com/u/14268885?s=460&v=4" width="117">](https://github.com/imonhossain)
