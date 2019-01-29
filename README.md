@@ -1,4 +1,4 @@
-# All about Angular
+# All About Angular
 
 Well organized and easy to understand all of the html element by using Angular7, Here we will try to cover all of example that will help you lot to build your skills as well as your project.
 
@@ -17,20 +17,25 @@ Getting started
 Table of contents
 =================
 * [User Inputs](#user-input)
-    * [Text](#text)
-    * [Email](#email)
-* [Getting started](#getting-started)
-* [API](#api)
-* [Change detection](#change-detection)
-* [Custom styles](#custom-styles)
-* [Validation state](#validation-state)
+    * [Color](#text)
+    * [Date](#email)
+    * [Datetime Local](#number)
+    * [Month](#text)
+    * [Week](#email)
+    * [Time](#number)
+    * [Email](#text)
+    * [Number](#email)
+    * [Range](#number)
+    * [Search](#text)
+    * [Tel](#email)
+    * [Url](#number)
 * [Contributing](#contributing)
 * [Development](#development)
 * [Inspiration](#inspiration)
 
 ## User Inputs
-### Text
-### Email
+### Color
+### Date
 
 ## Contributing
 [<img alt="shohel rana" src="https://avatars1.githubusercontent.com/u/6725033?v=3&u=ee5df486d864c24c153d9b68bc7fac00b8b29403&s=400" width="117">](https://github.com/mdshohelrana) [<img alt="ferozahmed26" src="https://avatars1.githubusercontent.com/u/26955223?s=460&v=4" width="117">](https://github.com/ferozahmed26) [<img alt="Imon Hossain" src="https://avatars3.githubusercontent.com/u/14268885?s=460&v=4" width="117">](https://github.com/imonhossain)
