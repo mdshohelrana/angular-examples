@@ -1,50 +1,67 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren, ViewChild, ElementRef, Injector, AfterViewInit } from '@angular/core';
 import { Employee } from './Employee.model';
+import { SfValidateDirective } from '../sf-validate.directive';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-simple-form',
   templateUrl: './simple-form.component.html',
-  styleUrls: ['./simple-form.component.css']
+  styleUrls: ['./simple-form.component.css'],
+  viewProviders: [SfValidateDirective, NgModel]
 })
 export class SimpleFormComponent implements OnInit {
+  @ViewChildren(SfValidateDirective) items;
   private employee:Employee;
   private employeeOptions:any = {
           "name" : {
-            "message" : "Name requred"
+            "message" : "Name requred",
+            "requred" : true,
           },
           "email" : {
-            "message" : "Email requred"
+            "message" : "Email requred",
+            "requred" : true,
           },
           "password" : {
-            "message" : "Password requred"
+            "message" : "Password requred",
+            "requred" : true,
           },
           "url" : {
-            "message" : "Url requred"
+            "message" : "Url requred",
+            "requred" : true,
           },
           "tel" : {
-            "message" : "Tel requred"
+            "message" : "Tel requred",
+            "requred" : true,
           },
           "date" : {
-            "message" : "Date requred"
+            "message" : "Date requred",
+            "requred" : true,
           },
           "time" : {
-            "message" : "Time requred"
+            "message" : "Time requred",
+            "requred" : true,
           },
           "dateTime" : {
-            "message" : "Date Time requred"
+            "message" : "Date Time requred",
+            "requred" : true,
           },
           "gender" : {
-            "message" : "Gender requred"
+            "message" : "Gender requred",
+            "requred" : true,
           },
           "address" : {
-            "message" : "Address requred"
+            "message" : "Address requred",
+            "requred" : true,
           }
   }
 
-  constructor() { }
+  constructor(
+    private _inj:Injector
+  ) { }
 
   ngOnInit() {
     this.employee = new Employee({name:"Feroz"});
+    
     
   }
 
