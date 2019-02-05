@@ -1,4 +1,4 @@
-import { Directive, SimpleChanges, OnChanges, OnInit, Injector, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Directive, SimpleChanges, OnChanges, OnInit, Injector, ElementRef, Input, Renderer2, HostListener } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Directive({
@@ -11,6 +11,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
   @Input('sf-validate') _validationKey:string;
 
   private _option:any;
+  private _valid:boolean = true;
 
   private div = this.renderer.createElement("div");
 
@@ -66,10 +67,14 @@ export class SfValidateDirective implements OnChanges, OnInit {
     private setValidity() {
         console.log(this._model.value);
         if(this._modelObj.value == "") {
+          this._valid = false;
           this.setError();
 
         }
-        else this.removeError();
+        else {
+          this._valid = true;
+          this.removeError();
+        }
         
     }
 
@@ -114,6 +119,16 @@ export class SfValidateDirective implements OnChanges, OnInit {
       this.renderer.appendChild(this.div, tooltipDiv);
       this.renderer.insertBefore(this._el.nativeElement.parentNode, this.div, this._el.nativeElement);
     }
+    @HostListener('mouseenter')
+    showTootip() {
+      if(!this._valid) {
+        this.renderer.addClass(this.div, "show");
+      }
+    }  
+    @HostListener('mouseleave')
+    hideTooltip() {
+      this.renderer.removeClass(this.div, "show");
+    }
     private _getTime() {}
     private stringMinLength() {}
     private stringMaxLength() {}
@@ -132,6 +147,15 @@ export class SfValidateDirective implements OnChanges, OnInit {
     validate():void {
       console.log("thanks for validate me");
       
+    }
+    
+
+    createElementFromHTML(htmlString) {
+      var div = document.createElement('div');
+      div.innerHTML = htmlString.trim();
+    
+      // Change this to div.childNodes to support multiple top-level nodes
+      return div.firstChild; 
     }
 
 }
