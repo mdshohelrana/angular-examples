@@ -14,44 +14,43 @@ export class SimpleFormComponent implements OnInit {
   private employee:Employee;
   private employeeOptions:any = {
           "name" : {
-            "message" : "Name requred",
-            "requred" : true,
+            "message" : "Name required",
+            "required" : true,
           },
           "email" : {
-            "message" : "Email requred",
-            "requred" : true,
+            "message" : "Email required",
+            "required" : true,
           },
           "password" : {
-            "message" : "Password requred",
-            "requred" : true,
+            "message" : "Password required",
+            "required" : true,
           },
           "url" : {
-            "message" : "Url requred",
-            "requred" : true,
+            "required" : true,
           },
           "tel" : {
-            "message" : "Tel requred",
-            "requred" : true,
+            "message" : "Tel required",
+            "required" : true,
           },
           "date" : {
-            "message" : "Date requred",
-            "requred" : true,
+            "message" : "Date required",
+            "required" : true,
           },
           "time" : {
-            "message" : "Time requred",
-            "requred" : true,
+            "message" : "Time required",
+            "required" : true,
           },
           "dateTime" : {
-            "message" : "Date Time requred",
-            "requred" : true,
+            "message" : "Date Time required",
+            "required" : true,
           },
           "gender" : {
-            "message" : "Gender requred",
-            "requred" : true,
+            "message" : "Gender required",
+            "required" : true,
           },
           "address" : {
-            "message" : "Address requred",
-            "requred" : true,
+            "message" : "Address required",
+            "required" : true,
           }
   }
 

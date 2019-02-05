@@ -10,42 +10,42 @@
           </div>
           <div class="form-group col-md-6">
             <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" [(ngModel)]="employee.email" id="emailField" name="emailField" placeholder="Email">
+            <input type="email" class="form-control" sf-validate="email" [(ngModel)]="employee.email" id="emailField" name="emailField" placeholder="Email">
           </div>
           <div class="form-group col-md-6">
             <label for="passwordField">Password</label>
-            <input type="password" class="form-control" [(ngModel)]="employee.password" id="passwordField" name="passwordField" placeholder="Password">
+            <input type="password" class="form-control" sf-validate="password" [(ngModel)]="employee.password" id="passwordField" name="passwordField" placeholder="Password">
           </div>
           <div class="form-group col-md-6">
             <label for="urlField">Url</label>
-            <input type="url" class="form-control" [(ngModel)]="employee.url" id="urlField" name="urlField" placeholder="Url">
+            <input type="url" class="form-control" sf-validate="url" [(ngModel)]="employee.url" id="urlField" name="urlField" placeholder="Url">
           </div>
           <div class="form-group col-md-6">
             <label for="telField">Tel</label>
-            <input type="tel" class="form-control" [(ngModel)]="employee.tel" id="telField" name="telField" placeholder="Tel">
+            <input type="tel" class="form-control" sf-validate="tel" [(ngModel)]="employee.tel" id="telField" name="telField" placeholder="Tel">
           </div>
           <div class="form-group col-md-6">
             <label for="dateField">Date</label>
-            <input type="date" class="form-control" [(ngModel)]="employee.date" id="dateField" name="dateField" placeholder="Date">
+            <input type="date" class="form-control" sf-validate="date" [(ngModel)]="employee.date" id="dateField" name="dateField" placeholder="Date">
           </div>
           <div class="form-group col-md-6">
             <label for="timeField">Time</label>
-            <input type="time" class="form-control" [(ngModel)]="employee.time" id="timeField" name="timeField" placeholder="Time">
+            <input type="time" class="form-control" sf-validate="time" [(ngModel)]="employee.time" id="timeField" name="timeField" placeholder="Time">
           </div>
           <div class="form-group col-md-6">
             <label for="dateTimeField">Date Time</label>
-            <input type="datetime-local" class="form-control" [(ngModel)]="employee.dateTime" id="dateTimeField" name="dateTimeField" placeholder="Date Time">
+            <input type="datetime-local" class="form-control" sf-validate="dateTime" [(ngModel)]="employee.dateTime" id="dateTimeField" name="dateTimeField" placeholder="Date Time">
           </div>
           <div class="form-group col-md-6">
             <label for="selectField">Gender</label>
-            <select class="form-control" name="selectField" [(ngModel)]="employee.gender" id="selectField">
+            <select class="form-control" name="selectField" sf-validate="gender" [(ngModel)]="employee.gender" id="selectField">
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
           </div>
           <div class="form-group col-12">
             <label for="addressField">Address</label>
-            <textarea class="form-control"  name="addressField" [(ngModel)]="employee.address" id="addressField" rows="2"></textarea>
+            <textarea class="form-control"  name="addressField" sf-validate="address" [(ngModel)]="employee.address" id="addressField" rows="2"></textarea>
           </div>
         </div>
         <div class="form-group">
