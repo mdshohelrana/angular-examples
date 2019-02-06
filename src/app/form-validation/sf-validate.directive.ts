@@ -12,6 +12,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
   private _option:any;
   private _valid:boolean = true;
+  private _mouseenter:boolean = false;
 
   private div = this.renderer.createElement("div");
 
@@ -91,7 +92,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
       this.addValidationTooltip();
     }
     private addValidationTooltip() {
-      this.renderer.addClass(this.div, "show");
+      if(this._mouseenter) this.renderer.addClass(this.div, "show");
       this.renderer.setStyle(this._el.nativeElement, "border", "1px solid red");
     }
     private removeValidationTooltip() {
@@ -119,16 +120,21 @@ export class SfValidateDirective implements OnChanges, OnInit {
       this.renderer.appendChild(this.div, tooltipDiv);
       this.renderer.insertBefore(this._el.nativeElement.parentNode, this.div, this._el.nativeElement);
     }
+
     @HostListener('mouseenter')
     showTootip() {
+      this._mouseenter = true;
       if(!this._valid) {
         this.renderer.addClass(this.div, "show");
       }
-    }  
+    }
+
     @HostListener('mouseleave')
     hideTooltip() {
+      this._mouseenter = false;
       this.renderer.removeClass(this.div, "show");
     }
+
     private _getTime() {}
     private stringMinLength() {}
     private stringMaxLength() {}
