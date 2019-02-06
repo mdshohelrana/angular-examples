@@ -1,4 +1,4 @@
-# All About Angular
+# ![All About Angular](logo.png)
 <p align="center">:warning: Work In Progress :warning:</p>
 
 Well organized and easy to understand all of the html element by using Angular7, Here we will try to cover all of example that will help you lot to build your skills as well as your project.
