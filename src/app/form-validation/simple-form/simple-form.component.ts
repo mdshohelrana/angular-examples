@@ -14,43 +14,57 @@ export class SimpleFormComponent implements OnInit {
   private employee:Employee;
   private employeeOptions:any = {
           "name" : {
-            "message" : "Name required",
-            "required" : true,
+            'size': {
+              'min': 3,
+              'max': 20,
+              'message': 'First name is required to be between 3 and 20 characters.'
+            },
+            "required" : {
+              "message" : "Name required",
+            },
           },
           "email" : {
-            "message" : "Email required",
-            "required" : true,
+            "required" : {
+              "message" : "Email required",
+            },
           },
           "password" : {
-            "message" : "Password required",
-            "required" : true,
+            "required" : {
+              "message" : "Password required",
+            },
           },
           "url" : {
-            "required" : true,
+            "required" : {},
           },
           "tel" : {
-            "message" : "Tel required",
-            "required" : true,
+            "required" : {
+              "message" : "Tel required",
+            },
           },
           "date" : {
-            "message" : "Date required",
-            "required" : true,
+            "required" : {
+              "message" : "Date required",
+            },
           },
           "time" : {
-            "message" : "Time required",
-            "required" : true,
+            "required" : {
+              "message" : "Time required",
+            },
           },
           "dateTime" : {
-            "message" : "Date Time required",
-            "required" : true,
+            "required" : {
+              "message" : "Date Time required",
+            },
           },
           "gender" : {
-            "message" : "Gender required",
-            "required" : true,
+            "required" : {
+              "message" : "Gender required",
+            },
           },
           "address" : {
-            "message" : "Address required",
-            "required" : true,
+            "required" : {
+              "message" : "Address required",
+            },
           }
   }
 

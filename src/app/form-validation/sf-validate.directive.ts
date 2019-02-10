@@ -15,6 +15,8 @@ export class SfValidateDirective implements OnChanges, OnInit {
   private _mouseenter:boolean = false;
 
   private div = this.renderer.createElement("div");
+  tooltipDiv = this.renderer.createElement("div");
+  private errorText = "";
 
   constructor(
     private _injector: Injector,
@@ -24,14 +26,10 @@ export class SfValidateDirective implements OnChanges, OnInit {
     ) {
     }
     
-    public ngOnInit(): void {
-      console.log(this._el, this._modelObj);
-      console.log(this._model);
-      
+    public ngOnInit(): void {      
     }
 
     public ngOnChanges(changes: SimpleChanges): void {
-      console.log(changes);
       if(!changes._model.firstChange) {
         this.sfValidator();
       }
@@ -45,7 +43,6 @@ export class SfValidateDirective implements OnChanges, OnInit {
         // Get validatoion option's object string from ***Form*** & get the object for this element
         let validateOption = this._el.nativeElement.closest('form').getAttribute('sf-validation-option');
         this._option = this._injector['view'].component[validateOption][this._validationKey];
-        console.log(this._option);
       } catch (error) {
         this._option = null;
       }
@@ -61,26 +58,47 @@ export class SfValidateDirective implements OnChanges, OnInit {
     }
 
     private callValidation() {
-      if( !this._isUndefinedOrNull() && this.requiredValidator() ) {
-        this.setValidity();
+      if( !this._isUndefinedOrNull() ) {
+        if( this._modelObj.value.length> 0 && this._option.hasOwnProperty('size') ) {
+          this._valid = this.rangeValidator(this._option['size']);
+          this.setValidity();
+        }
+        else if( this._option.hasOwnProperty('required') ) {
+          this._valid = this.requiredValidator(this._option['required']);
+          this.setValidity();
+        }
       }
     }
     private setValidity() {
-        console.log(this._model.value);
-        if(this._modelObj.value == "") {
-          this._valid = false;
+        if(!this._valid) {
           this.setError();
 
         }
         else {
-          this._valid = true;
           this.removeError();
         }
         
     }
 
-    private requiredValidator():boolean {
-      return (this._option.hasOwnProperty('required') && this._option.hasOwnProperty('required') === true);
+    private rangeValidator(_sizeOptions_) {
+      let _result_ = true;
+      if( _sizeOptions_.hasOwnProperty('min') && (this._modelObj.value.length < _sizeOptions_['min']) ) {
+        _result_ = false;
+        this.errorText = _sizeOptions_.message;
+      }
+      if( _sizeOptions_.hasOwnProperty('max') && (this._modelObj.value.length > _sizeOptions_['max']) ) {
+        _result_ = false;
+        this.errorText = _sizeOptions_.message;
+      }
+      return _result_
+    }
+    private requiredValidator(_requiredOptions_):boolean {
+      let _result_ = true;
+      if(this._modelObj.value == "") {
+        _result_ = false;
+        this.errorText = _requiredOptions_.message;
+      }
+      return _result_
     }
     private setError() {
       this.showValidationMessage();
@@ -92,6 +110,8 @@ export class SfValidateDirective implements OnChanges, OnInit {
       this.addValidationTooltip();
     }
     private addValidationTooltip() {
+      // this._el.nativeElement.previousElementSibling.getElementsByClassName('tooltip-inner')[0].innerText = this.errorText;
+      this.renderer.setProperty(this.tooltipDiv, 'innerText', this.errorText);
       if(this._mouseenter) this.renderer.addClass(this.div, "show");
       this.renderer.setStyle(this._el.nativeElement, "border", "1px solid red");
     }
@@ -104,20 +124,19 @@ export class SfValidateDirective implements OnChanges, OnInit {
       this.renderer.addClass(this.div, "tooltip");
       this.renderer.addClass(this.div, "fade");
       this.renderer.addClass(this.div, "bs-tooltip-top");
-      this.renderer.setStyle(this.div, "bottom", "initial");
-      this.renderer.setStyle(this.div, "top", "0");
+      this.renderer.setStyle(this.div, "bottom", "34px");
+      this.renderer.setStyle(this.div, "top", "initial");
       this.renderer.setStyle(this.div, "right", "0");
+      this.renderer.setStyle(this.div, "pointer-events", "none");
       const arrowDiv = this.renderer.createElement("div");
       this.renderer.addClass(arrowDiv, "arrow");
       this.renderer.setStyle(arrowDiv, "left", "50%");
       this.renderer.setStyle(arrowDiv, "transform", "translateX(-50%)");
-      const tooltipDiv = this.renderer.createElement("div");
-      this.renderer.addClass(tooltipDiv, "tooltip-inner");
-      const text = (this._option.hasOwnProperty('message')) ? this._option.message : "This field is required";
-      const tooltipText = this.renderer.createText(text);
-      this.renderer.appendChild(tooltipDiv, tooltipText);
+      const tooltipText = (this.errorText) ? this.errorText : "This field is required";
+      this.renderer.addClass(this.tooltipDiv, "tooltip-inner");
+      this.renderer.setProperty(this.tooltipDiv, 'innerText', tooltipText);
       this.renderer.appendChild(this.div, arrowDiv);
-      this.renderer.appendChild(this.div, tooltipDiv);
+      this.renderer.appendChild(this.div, this.tooltipDiv);
       this.renderer.insertBefore(this._el.nativeElement.parentNode, this.div, this._el.nativeElement);
     }
 
@@ -138,7 +157,6 @@ export class SfValidateDirective implements OnChanges, OnInit {
     private _getTime() {}
     private stringMinLength() {}
     private stringMaxLength() {}
-    private rangeValidator() {}
     private customValidatior() {}
     private isInput() {}
     private setResult() {}
@@ -152,7 +170,6 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
     validate():void {
       console.log("thanks for validate me");
-      
     }
     
 
