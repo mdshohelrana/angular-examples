@@ -56,7 +56,7 @@
             </label>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" sf-click>Save</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmitForm()"  [sf-click]="employeeOptions.validate" (validate)="onValidateForm($event)">Save</button>
       </form>
   </div>
 </div>
