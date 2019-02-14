@@ -2,7 +2,7 @@
   <div class="col-6">
       <h5>Simple form</h5>
       <hr/>      
-      <form novalidate sf-validation-option="employeeOptions">
+      <form #myForm="ngForm" novalidate sf-validation-option="employeeOptions">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="nameField">Name</label>
@@ -56,7 +56,8 @@
             </label>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="onSubmitForm()"  [sf-click]="employeeOptions.validate" (validate)="onValidateForm($event)">Save</button>
+        <button type="submit" [disabled]="!myForm.form.valid" class="btn btn-primary mr-1"  (sf-click)="onSubmitForm($event)" >Save</button>
+        <button type="button" class="btn btn-warning"  (sf-click)="onFormReset($event)" >Reset</button>
       </form>
   </div>
 </div>

@@ -66,7 +66,7 @@ export class SimpleFormComponent implements OnInit, AfterViewInit {
               "message" : "Address required",
             },
           },
-          validate: new EventEmitter()
+          message: "tooltip"
   }
 
   constructor(
@@ -83,11 +83,13 @@ export class SimpleFormComponent implements OnInit, AfterViewInit {
     
   }
 
-  onSubmitForm() {
-    this.employeeOptions.validate.emit();
-  }
-  onValidateForm(_validationResult) {
+  onSubmitForm(form:any) {
+    let _validationResult = form.validate();
     console.log(_validationResult);
+  }
+  
+  onFormReset(form:any) {
+    form.reset();
   }
 
   

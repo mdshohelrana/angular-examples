@@ -1,42 +1,52 @@
-import { Directive, ViewChildren, AfterViewInit, HostListener, ElementRef, Host, Injector, Type, ApplicationRef, Input, EventEmitter, Output } from '@angular/core';
+import { Directive, HostListener, ElementRef, Injector, EventEmitter, Output } from '@angular/core';
 import { SfValidateDirective } from './sf-validate.directive';
+import { NgForm } from '@angular/forms';
+
+
+
+const _DEFAULT_RESULT = { isValid: true, validationSummaryMsgs: [] };
 
 @Directive({
   selector: '[sf-click]'
 })
-export class SfClickDirective implements AfterViewInit {
-  @ViewChildren(SfValidateDirective)  @Host()  items;
+export class SfClickDirective {
 
-  @Input('sf-click') _validateEvent:EventEmitter<any>;
+  @Output('sf-click') _validateEvent: EventEmitter<any> = new EventEmitter();
 
-  @Output() validate:EventEmitter<any> = new EventEmitter();
-  
 
-  private validationResult = [];
+  private validationResult = _DEFAULT_RESULT;
 
-  constructor(private el: ElementRef, private _injector:Injector, private c:ApplicationRef ) { 
-    // console.log(l);
-    
+  constructor(private _el: ElementRef, private _injector: Injector, private ngForm:NgForm) { }
+
+
+  @HostListener('click', ['$event'])
+  private onClick(event) {
+    // this.ngForm.form.markAsPristine({});
+    event['validate'] = () => { return this.validate() };
+    event['reset'] = () => { return this.reset() };
+    this._validateEvent.emit(event);
   }
 
-  ngAfterViewInit() {
-    this._validateEvent.subscribe(
-        arg => {this.onClick();}
-      );
-  console.log(this._validateEvent);
-      // this._validateEvent();
-      // this.items.first.validate();
-  }
-  
-  // @HostListener('click')
-  private onClick() {
-    this.validationResult.length = 0;
-    let maps = this._injector['view'].nodes.filter((x: any) => {return x['instance'] instanceof SfValidateDirective});
+  public validate() {
+    this.validationResult["validationSummaryMsgs"].length = 0;
+    let maps = this._injector['view'].nodes.filter((x: any) => { return x['instance'] instanceof SfValidateDirective });
     for (let index = 0; index < maps.length; index++) {
-      this.validationResult.push( maps[index]['instance'].callValidation() );
+      const _result_ = maps[index]['instance'].callValidation();
+      if (!_result_.isValid) {
+        this.validationResult["validationSummaryMsgs"].push(_result_);
+        this.validationResult.isValid = false;
+      }
     }
-    this.validate.emit(this.validationResult);
-    
+    return this.validationResult;
+  }
+
+  public reset() {
+    this.validationResult = _DEFAULT_RESULT;
+    let maps = this._injector['view'].nodes.filter((x: any) => { return x['instance'] instanceof SfValidateDirective });
+    for (let index = 0; index < maps.length; index++) {
+      maps[index]['instance'].resetValidation();
+    }
+    return;
   }
 
 }
