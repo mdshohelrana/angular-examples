@@ -1,4 +1,4 @@
-import { Component, OnInit, QueryList, ViewChildren, ViewChild, ElementRef, Injector, AfterViewInit } from '@angular/core';
+import { Component, OnInit, QueryList, ViewChildren, ViewChild, ElementRef, Injector, AfterViewInit, EventEmitter } from '@angular/core';
 import { Employee } from './Employee.model';
 import { SfValidateDirective } from '../sf-validate.directive';
 import { NgModel } from '@angular/forms';
@@ -9,7 +9,7 @@ import { NgModel } from '@angular/forms';
   styleUrls: ['./simple-form.component.css'],
   viewProviders: [SfValidateDirective, NgModel]
 })
-export class SimpleFormComponent implements OnInit {
+export class SimpleFormComponent implements OnInit, AfterViewInit {
   @ViewChildren(SfValidateDirective) items;
   private employee:Employee;
   private employeeOptions:any = {
@@ -65,7 +65,8 @@ export class SimpleFormComponent implements OnInit {
             "required" : {
               "message" : "Address required",
             },
-          }
+          },
+          message: "tooltip"
   }
 
   constructor(
@@ -77,5 +78,20 @@ export class SimpleFormComponent implements OnInit {
     
     
   }
+
+  ngAfterViewInit() {
+    
+  }
+
+  onSubmitForm(form:any) {
+    let _validationResult = form.validate();
+    console.log(_validationResult);
+  }
+  
+  onFormReset(form:any) {
+    form.reset();
+  }
+
+  
 
 }
