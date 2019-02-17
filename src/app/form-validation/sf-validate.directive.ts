@@ -38,8 +38,10 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
     if (!_changes_._model.firstChange) {
       this.sfValidator();
+      console.log(this._el);
     }
     else {
+      
       this.prepareValidationMsgs();
     }
   }
@@ -67,10 +69,17 @@ export class SfValidateDirective implements OnChanges, OnInit {
   private callValidation(): any {
     this._errorText = "";
     this._valid = true;
+    const _element_ = this._el.nativeElement;
     if (!this._isUndefinedOrNull()) {
-      if (this._modelObj.value !== undefined && this._modelObj.value.length > 0 && this._option.hasOwnProperty("size")) {
-        this._valid = this.sizeValidator(this._option["size"]);
-        this.setValidity();
+      if( this._modelObj.value !== undefined && this._modelObj.value.length > 0 ) {
+        if(this.isEmail(_element_)) {
+          this._valid = this.validateEmail(this._modelObj.value);
+          this.setValidity();
+        }
+        else if (this._option.hasOwnProperty("size")) {
+          this._valid = this.sizeValidator(this._option["size"]);
+          this.setValidity();
+        } 
       }
       else if (this._option.hasOwnProperty("required")) {
         this._valid = this.requiredValidator(this._option["required"]);
@@ -194,8 +203,12 @@ export class SfValidateDirective implements OnChanges, OnInit {
   private setResult() { }
   private callGridValidationGrps() { }
 
-  private isInput(_nodeName) {
-    return _nodeName === 'INPUT' || _nodeName === 'SELECT' || _nodeName === 'TEXTAREA';
+  private isEmail(_element) {
+    return _element['type'] === 'email';
+  }
+
+  private isInput(_element) {
+    return _element['nodeName'] === 'INPUT' || _element['nodeName'] === 'SELECT' || _element['nodeName'] === 'TEXTAREA';
   }
 
   private stringMinLength(_sizeOptions_, _result_) {
@@ -214,9 +227,14 @@ export class SfValidateDirective implements OnChanges, OnInit {
   }
 
   private validateEmail(email) {
+    let _result_:boolean;
     var re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     var patt = new RegExp(re);
-    return patt.test(email);
+    _result_ =  patt.test(email);
+    if(!_result_) {
+      this._errorText = "Not a valid email";
+    }
+    return _result_;
   }
 
   /** This method was written for testing purpuse only 
