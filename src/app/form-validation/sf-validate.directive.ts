@@ -38,7 +38,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
     if (!_changes_._model.firstChange) {
       this.sfValidator();
-      console.log(this._el);
+      console.log(this._modelObj);
     }
     else {
       
@@ -79,7 +79,15 @@ export class SfValidateDirective implements OnChanges, OnInit {
         else if (this._option.hasOwnProperty("size")) {
           this._valid = this.sizeValidator(this._option["size"]);
           this.setValidity();
-        } 
+        }
+        else if (this._option.hasOwnProperty("range")) {
+          this._valid = this.rangeValidator(this._option["size"]);
+          this.setValidity();
+        }
+        else if (this._option.hasOwnProperty("range")) {
+          this._valid = this.patternValidator(this._option["size"]);
+          this.setValidity();
+        }
       }
       else if (this._option.hasOwnProperty("required")) {
         this._valid = this.requiredValidator(this._option["required"]);
@@ -105,27 +113,6 @@ export class SfValidateDirective implements OnChanges, OnInit {
       this.removeError();
     }
 
-  }
-
-  private sizeValidator(_sizeOptions_) {
-    let _result_ = true;
-
-    _result_ = this.stringMinLength(_sizeOptions_, _result_);
-    _result_ = this.stringMaxLength(_sizeOptions_, _result_);
-    
-    return _result_;
-  }
-
-  private rangeValidator() {
-  }
-
-  private requiredValidator(_requiredOptions_): boolean {
-    let _result_ = true;
-    if (this._modelObj.value === undefined || this._modelObj.value.length == 0) {
-      _result_ = false;
-      this._errorText = _requiredOptions_.hasOwnProperty("message") ? _requiredOptions_.message : this._defaultErrorText;
-    }
-    return _result_
   }
 
   private setError() {
@@ -226,15 +213,81 @@ export class SfValidateDirective implements OnChanges, OnInit {
     return _result_
   }
 
-  private validateEmail(email) {
+  private validateEmail( _email_ ) {
     let _result_:boolean;
     var re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     var patt = new RegExp(re);
-    _result_ =  patt.test(email);
-    if(!_result_) {
+    _result_ =  patt.test( _email_ );
+    if( !_result_ ) {
       this._errorText = "Not a valid email";
     }
     return _result_;
+  }
+
+  private patternValidator(_pattern_) {
+    var patt = new RegExp(_pattern_);
+    return patt.test(this._modelObj.value);
+  }
+
+  
+  private sizeValidator( _sizeOptions_ ) {
+    let _result_ = true;
+
+    _result_ = this.stringMinLength(_sizeOptions_, _result_);
+    _result_ = this.stringMaxLength(_sizeOptions_, _result_);
+    
+    return _result_;
+  }
+
+  private rangeValidator( _sizeOptions_) {
+    let _result_ = true;
+    let _value_ = this._modelObj.value;
+    try {
+        if (typeof _value_ === "string") {
+            _value_ = parseFloat(_value_);
+        }
+
+        const _dataRange_ = _sizeOptions_.hasOwnProperty("range")
+
+        if ((typeof _value_ === "number") && (!isNaN(_value_))) {
+            let range_array = _dataRange_.split(',');
+
+            if (range_array.length === 2) {
+                var minRange = parseFloat(range_array[0]);
+                var maxRange = parseFloat(range_array[1]);
+
+                if (minRange != null && _value_ < minRange) {
+                    return _result_ = false;
+                }
+                if (maxRange != null && _value_ > maxRange) {
+                    return _result_ = false;
+                }
+            }
+            else {
+                var range = parseFloat(_dataRange_);
+                if ((typeof range === "number") && (!isNaN(range))) {
+                    if (_value_ < range) {
+                        _result_ = false;
+                    }
+                }
+            }
+        } else {
+            _result_ = false;
+        }
+    } catch (e) {
+        this._errorText = e.message;
+        _result_ = false;
+    }
+    return _result_;
+}
+
+  private requiredValidator(_requiredOptions_): boolean {
+    let _result_ = true;
+    if (this._modelObj.value === undefined || this._modelObj.value.length == 0) {
+      _result_ = false;
+      this._errorText = _requiredOptions_.hasOwnProperty("message") ? _requiredOptions_.message : this._defaultErrorText;
+    }
+    return _result_
   }
 
   /** This method was written for testing purpuse only 
