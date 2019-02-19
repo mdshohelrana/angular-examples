@@ -11,6 +11,7 @@ import { SimpleFormComponent } from './simple-form/simple-form.component';
 import { MasterChildFormComponent } from './master-child-form/master-child-form.component';
 import { SfValidateDirective } from './sf-validate.directive';
 import { SfClickDirective } from './sf-click.directive';
+import { NestedFormComponent } from './nested-form/nested-form.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,7 @@ import { SfClickDirective } from './sf-click.directive';
     FormValidationComponent
     , BasicFormComponent
     , TemplateFormComponent
-    , ReactiveFormComponent, SimpleFormComponent, MasterChildFormComponent, SfValidateDirective, SfClickDirective
+    , ReactiveFormComponent, SimpleFormComponent, MasterChildFormComponent, SfValidateDirective, SfClickDirective, NestedFormComponent
   ]
 })
 export class FormValidationModule { }
