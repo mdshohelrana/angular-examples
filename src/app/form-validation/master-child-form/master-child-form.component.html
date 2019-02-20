@@ -2,24 +2,24 @@
   <div class="col-md-12">
       <h5>Master Child Form</h5>
       <hr/>
-    <form #simpleSelectForm="ngForm" (ngSubmit)="onSubmit(simpleSelectForm)" novalidate>
+    <form novalidate sf-validation-option="customerOptions">
       <div class="row">
         <div class="col-md-4">
           <div class="form-group">
-            <label for="inputEmail">Customer Name</label>
-            <input type="text" class="form-control" value="Imon Hossain">
+            <label for="customer-name">Customer Name</label>
+            <input id="customer-name" name="customer-name" sf-validate="name" [(ngModel)]="customerName" type="text" class="form-control" value="">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label for="inputEmail">Mobile Number</label>
-            <input type="text" class="form-control" value="0192983039342983893">
+            <label for="customer-mobile-number">Mobile Number</label>
+            <input id="customer-mobile-number" name="customer-mobile-number" sf-validate="mobileNumber" [(ngModel)]="customerMobileNumber" type="text" class="form-control" value="">
           </div>
         </div>
         <div class="col-md-4">
           <div class="form-group">
-            <label for="inputEmail">Address</label>
-            <input type="text" class="form-control" value="bdc road Khalick pur Khulna">
+            <label for="customer-address">Address</label>
+            <input id="customer-address" name="customer-address" sf-validate="address" [(ngModel)]="customerAddress" type="text" class="form-control" value="">
           </div>
         </div>
       </div>
@@ -78,6 +78,12 @@
         </table>
       </div> -->
       <div class="table-responsive">
+        <div class="d-flex align-items-center">
+          <h4>Product Entry</h4>
+          <div class="ml-1">
+              <button type="button" class="btn btn-primary btn-sm" group="productGroup" (sf-click)="addProduct($event)">Add New</button>
+          </div>
+        </div>
         <table class="table table-striped table-bordered table-condensed">
           <thead>
             <tr>
@@ -86,45 +92,28 @@
               <th>Product Price</th>
               <th>Product Quantity</th>
               <th>Total</th>
-              <th>Remove</th>
+              <th>Remove </th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="p-0 text-center">1</td>
-              <td class="p-0"><input type="text" class="form-control" value="Something"></td>
-              <td class="p-0"><input type="text"  class="text-right form-control" value="2309"></td>
-              <td class="p-0"><input type="text" class="form-control text-right" value="2"></td>
-              <td class="p-0"><input type="text" class="text-right form-control" value="3000.00"></td>
-              <td class="text-center p-0"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button></td>
-            </tr>
-            <tr>
-              <td class="p-0 text-center">1</td>
-              <td class="p-0"><input type="text" class="form-control" value="Something"></td>
-              <td class="p-0"><input type="text"  class="text-right form-control" value="2309"></td>
-              <td class="p-0"><input type="text" class="form-control text-right" value="2"></td>
-              <td class="p-0"><input type="text" class="text-right form-control" value="3000.00"></td>
-              <td class="text-center p-0"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button></td>
-            </tr>
-            <tr>
-              <td class="p-0 text-center">1</td>
-              <td class="p-0"><input type="text" class="form-control" value="Something"></td>
-              <td class="p-0"><input type="text"  class="text-right form-control" value="2309"></td>
-              <td class="p-0"><input type="text" class="form-control text-right" value="2"></td>
-              <td class="p-0"><input type="text" class="text-right form-control" value="3000.00"></td>
-              <td class="text-center p-0"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button></td>
-            </tr>
-            <tr>
-              <td class="p-0 text-center">1</td>
-              <td class="p-0"><input type="text" class="form-control" value="Something"></td>
-              <td class="p-0"><input type="text"  class="text-right form-control" value="2309"></td>
-              <td class="p-0"><input type="text" class="form-control text-right" value="2"></td>
-              <td class="p-0"><input type="text" class="text-right form-control" value="3000.00"></td>
-              <td class="text-center p-0"><button type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button></td>
-            </tr>
+          <tbody ngModelGroup="productGroup">
+              <ng-container *ngFor="let product of productList; let i=index; let isLast=last; trackBy:i; ">
+                  <tr ngModelGroup="productGroup-{{i}}">
+                    <td class="p-0 position-relative text-center">{{i+1}}</td>
+                    <td class="p-0 position-relative"><input type="text" class="form-control" name="productName-{{i}}" sf-validate="productName" [(ngModel)]="product.productName" value=""></td>
+                    <td class="p-0 position-relative"><input type="text"  class="text-right form-control" name="productPrice-{{i}}" sf-validate="productPrice" [(ngModel)]="product.productPrice" value=""></td>
+                    <td class="p-0 position-relative"><input type="text" class="form-control text-right" name="productQuantity-{{i}}" sf-validate="productQuantity" [(ngModel)]="product.productQuantity" value=""></td>
+                    <td class="p-0 position-relative"><input type="text" class="text-right form-control" name="total-{{i}}" sf-validate="total" [(ngModel)]="product.total" value=""></td>
+                    <td class="text-center p-0">
+                      <button style="padding:1px 5px;" type="button" class="btn btn-danger btn-sm"><i class="fa fa-times"></i></button>
+                      <button style="padding:1px 5px;" *ngIf="isLast" type="button" class="btn btn-success ml-1 btn-sm" group="productGroup-{{i}}" (sf-click)="addNewProduct($event)"><i class="fa fa-plus"></i></button>
+                    </td>
+                  </tr>
+              </ng-container>
           </tbody>
         </table>
-        <button type="button" class="btn btn-primary">Add New</button>
+        
+        <button type="button" class="btn btn-primary mr-1" not="productGroup" (sf-click)="saveCustomer($event)">Save</button>
+        <button type="button" class="btn btn-warning" (sf-click)="resetCustomer($event)">Reset</button>
       </div>
 
     </form>
