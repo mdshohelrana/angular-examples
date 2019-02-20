@@ -10,23 +10,24 @@ export class SfValidateDirective implements OnChanges, OnInit {
   @Input("ngModel") _model: NgModel;
   @Input("sf-validate") _validationKey: string;
 
-  private _option: any;
-  private _valid: boolean = true;
-  private _mouseenter: boolean = false;
+  public _option: any;
+  public _valid: boolean = true;
+  public _mouseenter: boolean = false;
 
-  private _div: any;
-  private _tooltipDiv: any;
-  private _errorText: string = "";
-  private _defaultErrorText: string = "This field is required";
+  public _div: any;
+  public _tooltipDiv: any;
+  public _errorText: string = "";
+  public _defaultErrorText: string = "This field is required";
 
-  private _result = { fieldName: "", isValid: true, validationSummary: "" };
+  public _result = { fieldName: "", isValid: true, validationSummary: "" };
 
   constructor(
-    private _injector: Injector,
-    private _el: ElementRef,
-    private _renderer: Renderer2,
-    private _modelObj: NgModel
+    public _injector: Injector,
+    public _el: ElementRef,
+    public _renderer: Renderer2,
+    public _modelObj: NgModel
   ) {
+    this._modelObj.control['sfValidator'] = this;
     this._div = this._renderer.createElement("div");
     this._tooltipDiv = this._renderer.createElement("div");
   }
@@ -37,16 +38,16 @@ export class SfValidateDirective implements OnChanges, OnInit {
   public ngOnChanges(_changes_: SimpleChanges): void {
 
     if (!_changes_._model.firstChange) {
-      this.sfValidator();
+      this.validator();
       console.log(this._modelObj);
     }
     else {
-      
+
       this.prepareValidationMsgs();
     }
   }
 
-  private prepareValidationMsgs() {
+  public prepareValidationMsgs() {
     try {
       // Get validatoion option's object string from ***Form*** & get the object for this element
       let _validateOption_ = this._el.nativeElement["form"].getAttribute("sf-validation-option");
@@ -57,42 +58,39 @@ export class SfValidateDirective implements OnChanges, OnInit {
     this.decorateElement();
   }
 
-  private _isUndefinedOrNull(): boolean {
+  public _isUndefinedOrNull(): boolean {
     return (this._option === undefined || this._option === null);
   }
 
-  private sfValidator() {
+  public validator() {
     this.callValidation();
 
   }
 
-  private callValidation(): any {
+  public callValidation(): any {
     this._errorText = "";
     this._valid = true;
     const _element_ = this._el.nativeElement;
     if (!this._isUndefinedOrNull()) {
-      if( this._modelObj.value !== undefined && this._modelObj.value.length > 0 ) {
-        if(this.isEmail(_element_)) {
+      if (this._modelObj.value !== undefined && this._modelObj.value.length > 0) {
+        if (this.isEmail(_element_)) {
           this._valid = this.validateEmail(this._modelObj.value);
-          this.setValidity();
         }
         else if (this._option.hasOwnProperty("size")) {
           this._valid = this.sizeValidator(this._option["size"]);
-          this.setValidity();
         }
         else if (this._option.hasOwnProperty("range")) {
-          this._valid = this.rangeValidator(this._option["size"]);
-          this.setValidity();
+          this._valid = this.rangeValidator(this._option["range"]);
         }
-        else if (this._option.hasOwnProperty("range")) {
-          this._valid = this.patternValidator(this._option["size"]);
-          this.setValidity();
+        else if (this._option.hasOwnProperty("pattern")) {
+          this._valid = this.patternValidator(this._option["pattern"]);
         }
       }
       else if (this._option.hasOwnProperty("required")) {
         this._valid = this.requiredValidator(this._option["required"]);
-        this.setValidity();
       }
+
+      this.setValidity();
     }
     this._result.fieldName = this._validationKey;
     this._result.isValid = this._valid;
@@ -100,12 +98,12 @@ export class SfValidateDirective implements OnChanges, OnInit {
     return this._result;
   }
 
-  private resetValidation() {
+  public resetValidation() {
     this._valid = true;
     this.removeError();
   }
 
-  private setValidity() {
+  public setValidity() {
     if (!this._valid) {
       this.setError();
     }
@@ -115,41 +113,41 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
   }
 
-  private setError() {
+  public setError() {
     this._modelObj.control.setErrors({ 'incorrect': true });
     this.showValidationMessage();
   }
 
-  private removeError() {
+  public removeError() {
     this._modelObj.control.setErrors(null);
     this.removeValidationTooltip();
     this.removeBorder();
   }
 
-  private showValidationMessage() {
+  public showValidationMessage() {
     this.addValidationTooltip();
     this.addBorder();
   }
 
-  private addValidationTooltip() {
+  public addValidationTooltip() {
     // this._el.nativeElement.previousElementSibling.getElementsByClassName("tooltip-inner")[0].innerText = this._errorText;
     this._renderer.setProperty(this._tooltipDiv, "innerText", this._errorText);
     if (this._mouseenter) this._renderer.addClass(this._div, "show");
   }
 
-  private removeValidationTooltip() {
+  public removeValidationTooltip() {
     this._renderer.removeClass(this._div, "show");
   }
 
-  private addBorder() {
+  public addBorder() {
     this._renderer.setStyle(this._el.nativeElement, "border", "1px solid red");
   }
 
-  private removeBorder() {
+  public removeBorder() {
     this._renderer.removeStyle(this._el.nativeElement, "border");
   }
 
-  private decorateElement() {
+  public decorateElement() {
 
     this._renderer.addClass(this._div, "tooltip");
     this._renderer.addClass(this._div, "fade");
@@ -185,27 +183,27 @@ export class SfValidateDirective implements OnChanges, OnInit {
   }
 
 
-  private _getTime() { }
-  private customValidatior() { }
-  private setResult() { }
-  private callGridValidationGrps() { }
+  public _getTime() { }
+  public customValidatior() { }
+  public setResult() { }
+  public callGridValidationGrps() { }
 
-  private isEmail(_element) {
+  public isEmail(_element) {
     return _element['type'] === 'email';
   }
 
-  private isInput(_element) {
+  public isInput(_element) {
     return _element['nodeName'] === 'INPUT' || _element['nodeName'] === 'SELECT' || _element['nodeName'] === 'TEXTAREA';
   }
 
-  private stringMinLength(_sizeOptions_, _result_) {
+  public stringMinLength(_sizeOptions_, _result_) {
     if (_sizeOptions_.hasOwnProperty("min") && (this._modelObj.value.length < _sizeOptions_["min"])) {
       _result_ = false;
       this._errorText = _sizeOptions_.message;
     }
     return _result_
   }
-  private stringMaxLength(_sizeOptions_, _result_) {
+  public stringMaxLength(_sizeOptions_, _result_) {
     if (_sizeOptions_.hasOwnProperty("max") && (this._modelObj.value.length > _sizeOptions_["max"])) {
       _result_ = false;
       this._errorText = _sizeOptions_.message;
@@ -213,75 +211,75 @@ export class SfValidateDirective implements OnChanges, OnInit {
     return _result_
   }
 
-  private validateEmail( _email_ ) {
-    let _result_:boolean;
+  public validateEmail(_email_) {
+    let _result_: boolean;
     var re = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     var patt = new RegExp(re);
-    _result_ =  patt.test( _email_ );
-    if( !_result_ ) {
+    _result_ = patt.test(_email_);
+    if (!_result_) {
       this._errorText = "Not a valid email";
     }
     return _result_;
   }
 
-  private patternValidator(_pattern_) {
+  public patternValidator(_pattern_) {
     var patt = new RegExp(_pattern_);
     return patt.test(this._modelObj.value);
   }
 
-  
-  private sizeValidator( _sizeOptions_ ) {
+
+  public sizeValidator(_sizeOptions_) {
     let _result_ = true;
 
     _result_ = this.stringMinLength(_sizeOptions_, _result_);
     _result_ = this.stringMaxLength(_sizeOptions_, _result_);
-    
+
     return _result_;
   }
 
-  private rangeValidator( _sizeOptions_) {
+  public rangeValidator(_sizeOptions_) {
     let _result_ = true;
     let _value_ = this._modelObj.value;
     try {
-        if (typeof _value_ === "string") {
-            _value_ = parseFloat(_value_);
+      if (typeof _value_ === "string") {
+        _value_ = parseFloat(_value_);
+      }
+
+      const _dataRange_ = _sizeOptions_.hasOwnProperty("range")
+
+      if ((typeof _value_ === "number") && (!isNaN(_value_))) {
+        let range_array = _dataRange_.split(',');
+
+        if (range_array.length === 2) {
+          var minRange = parseFloat(range_array[0]);
+          var maxRange = parseFloat(range_array[1]);
+
+          if (minRange != null && _value_ < minRange) {
+            return _result_ = false;
+          }
+          if (maxRange != null && _value_ > maxRange) {
+            return _result_ = false;
+          }
         }
-
-        const _dataRange_ = _sizeOptions_.hasOwnProperty("range")
-
-        if ((typeof _value_ === "number") && (!isNaN(_value_))) {
-            let range_array = _dataRange_.split(',');
-
-            if (range_array.length === 2) {
-                var minRange = parseFloat(range_array[0]);
-                var maxRange = parseFloat(range_array[1]);
-
-                if (minRange != null && _value_ < minRange) {
-                    return _result_ = false;
-                }
-                if (maxRange != null && _value_ > maxRange) {
-                    return _result_ = false;
-                }
+        else {
+          var range = parseFloat(_dataRange_);
+          if ((typeof range === "number") && (!isNaN(range))) {
+            if (_value_ < range) {
+              _result_ = false;
             }
-            else {
-                var range = parseFloat(_dataRange_);
-                if ((typeof range === "number") && (!isNaN(range))) {
-                    if (_value_ < range) {
-                        _result_ = false;
-                    }
-                }
-            }
-        } else {
-            _result_ = false;
+          }
         }
-    } catch (e) {
-        this._errorText = e.message;
+      } else {
         _result_ = false;
+      }
+    } catch (e) {
+      this._errorText = e.message;
+      _result_ = false;
     }
     return _result_;
-}
+  }
 
-  private requiredValidator(_requiredOptions_): boolean {
+  public requiredValidator(_requiredOptions_): boolean {
     let _result_ = true;
     if (this._modelObj.value === undefined || this._modelObj.value.length == 0) {
       _result_ = false;
