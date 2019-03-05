@@ -237,7 +237,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
     return _result_;
   }
 
-  public rangeValidator(_sizeOptions_) {
+  public rangeValidator(_rangeOptions_) {
     let _result_ = true;
     let _value_ = this._modelObj.value;
     try {
@@ -245,7 +245,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
         _value_ = parseFloat(_value_);
       }
 
-      const _dataRange_ = _sizeOptions_.hasOwnProperty("range")
+      const _dataRange_ = _rangeOptions_.hasOwnProperty("value")?_rangeOptions_.value:"";
 
       if ((typeof _value_ === "number") && (!isNaN(_value_))) {
         let range_array = _dataRange_.split(',');
@@ -255,9 +255,11 @@ export class SfValidateDirective implements OnChanges, OnInit {
           var maxRange = parseFloat(range_array[1]);
 
           if (minRange != null && _value_ < minRange) {
+            this._errorText = _rangeOptions_.message;
             return _result_ = false;
           }
           if (maxRange != null && _value_ > maxRange) {
+            this._errorText = _rangeOptions_.message;
             return _result_ = false;
           }
         }
@@ -265,11 +267,13 @@ export class SfValidateDirective implements OnChanges, OnInit {
           var range = parseFloat(_dataRange_);
           if ((typeof range === "number") && (!isNaN(range))) {
             if (_value_ < range) {
+              this._errorText = _rangeOptions_.message;
               _result_ = false;
             }
           }
         }
       } else {
+        this._errorText = _rangeOptions_.message;
         _result_ = false;
       }
     } catch (e) {
