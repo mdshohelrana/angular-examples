@@ -14,6 +14,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
   public _valid: boolean = true;
   public _mouseenter: boolean = false;
 
+  private _value:any;
   public _div: any;
   public _tooltipDiv: any;
   public _errorText: string = "";
@@ -36,13 +37,12 @@ export class SfValidateDirective implements OnChanges, OnInit {
   }
 
   public ngOnChanges(_changes_: SimpleChanges): void {
-
+    this._value = _changes_._model.currentValue;
     if (!_changes_._model.firstChange) {
       this.validator();
       console.log(this._modelObj);
     }
     else {
-
       this.prepareValidationMsgs();
     }
   }
@@ -50,7 +50,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
   public prepareValidationMsgs() {
     try {
       // Get validatoion option's object string from ***Form*** & get the object for this element
-      let _validateOption_ = this._el.nativeElement["form"].getAttribute("sf-validation-option");
+      let _validateOption_ = this._el.nativeElement.closest("form").getAttribute("sf-validation-option");
       this._option = this._injector["view"].component[_validateOption_][this._validationKey];
     } catch (error) {
       this._option = null;
@@ -72,9 +72,9 @@ export class SfValidateDirective implements OnChanges, OnInit {
     this._valid = true;
     const _element_ = this._el.nativeElement;
     if (!this._isUndefinedOrNull()) {
-      if (this._modelObj.value !== undefined && this._modelObj.value.length > 0) {
+      if (this._value !== undefined && this._value !== null && this._value.toString().length > 0) {
         if (this.isEmail(_element_)) {
-          this._valid = this.validateEmail(this._modelObj.value);
+          this._valid = this.validateEmail(this._value);
         }
         else if (this._option.hasOwnProperty("size")) {
           this._valid = this.sizeValidator(this._option["size"]);
@@ -197,14 +197,14 @@ export class SfValidateDirective implements OnChanges, OnInit {
   }
 
   public stringMinLength(_sizeOptions_, _result_) {
-    if (_sizeOptions_.hasOwnProperty("min") && (this._modelObj.value.length < _sizeOptions_["min"])) {
+    if (_sizeOptions_.hasOwnProperty("min") && (this._value.toString().length < _sizeOptions_["min"])) {
       _result_ = false;
       this._errorText = _sizeOptions_.message;
     }
     return _result_
   }
   public stringMaxLength(_sizeOptions_, _result_) {
-    if (_sizeOptions_.hasOwnProperty("max") && (this._modelObj.value.length > _sizeOptions_["max"])) {
+    if (_sizeOptions_.hasOwnProperty("max") && (this._value.toString().length > _sizeOptions_["max"])) {
       _result_ = false;
       this._errorText = _sizeOptions_.message;
     }
@@ -224,7 +224,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
   public patternValidator(_pattern_) {
     var patt = new RegExp(_pattern_);
-    return patt.test(this._modelObj.value);
+    return patt.test(this._value);
   }
 
 
@@ -239,7 +239,7 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
   public rangeValidator(_rangeOptions_) {
     let _result_ = true;
-    let _value_ = this._modelObj.value;
+    let _value_ = this._value;
     try {
       if (typeof _value_ === "string") {
         _value_ = parseFloat(_value_);
@@ -285,7 +285,9 @@ export class SfValidateDirective implements OnChanges, OnInit {
 
   public requiredValidator(_requiredOptions_): boolean {
     let _result_ = true;
-    if (this._modelObj.value === undefined || this._modelObj.value.length == 0) {
+    if (this._value !== undefined && this._value !== null && this._value.toString().length > 0) {
+    }
+    else {
       _result_ = false;
       this._errorText = _requiredOptions_.hasOwnProperty("message") ? _requiredOptions_.message : this._defaultErrorText;
     }
