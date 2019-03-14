@@ -37,6 +37,10 @@ export class SimpleFormComponent implements OnInit, AfterViewInit {
             "required" : {},
           },
           "tel" : {
+            "range": {
+              "value": "5,10",
+              "message": "Value should be between 5 to 10"
+            },
             "required" : {
               "message" : "Tel required",
             },

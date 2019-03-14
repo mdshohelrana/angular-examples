@@ -45,10 +45,12 @@ export class SfClickDirective {
     }
     console.log(maps);
     for (let index = 0; index < maps.length; index++) {
-      const _result_ = maps[index]['sfValidator'].callValidation();
-      if (!_result_.isValid) {
-        this.validationResult["validationSummaryMsgs"].push(_result_);
-        this.validationResult.isValid = false;
+      if(maps[index].hasOwnProperty("sfValidator")) {
+        const _result_ = maps[index]['sfValidator'].callValidation();
+        if (!_result_.isValid) {
+          this.validationResult["validationSummaryMsgs"].push(_result_);
+          this.validationResult.isValid = false;
+        }
       }
     }
     return this.validationResult;

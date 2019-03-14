@@ -36,6 +36,15 @@ export class MasterChildFormComponent implements OnInit {
         "message": "Address required",
       },
     },
+    "country": {
+      "required": {
+        "message": "Country required",
+      },
+      'range': {
+        'value': '5,20',
+        'message': 'Country should between Angola & Bhutan.'
+      },
+    },
     "productName": {
       "required": {
         "message": "Product Name required",
