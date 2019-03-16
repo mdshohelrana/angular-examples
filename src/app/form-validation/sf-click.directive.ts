@@ -25,9 +25,9 @@ export class SfClickDirective {
   @HostListener('click', ['$event'])
   private onClick(event) {
     // this._ngForm.form.markAsPristine({});
-    console.log(this._ngForm);
-    console.log(this.excludeText);
-    console.log(this.groupText);
+    // console.log(this._ngForm);
+    // console.log(this.excludeText);
+    // console.log(this.groupText);
 
     event['validate'] = () => { return this.validate() };
     event['reset'] = () => { return this.reset() };
@@ -43,7 +43,7 @@ export class SfClickDirective {
     } else {
       maps = this.getContols(this._ngForm);
     }
-    console.log(maps);
+    // console.log(maps);
     for (let index = 0; index < maps.length; index++) {
       if(maps[index].hasOwnProperty("sfValidator")) {
         const _result_ = maps[index]['sfValidator'].callValidation();

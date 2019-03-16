@@ -56,6 +56,9 @@ export class MasterChildFormComponent implements OnInit {
       },
     },
     "productQuantity": {
+      "custom": ()=> {
+        return true;
+      },
       "required": {
         "message": "Product Quantity required",
       },
