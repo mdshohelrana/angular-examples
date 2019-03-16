@@ -40,7 +40,6 @@ export class SfValidateDirective implements OnChanges, OnInit {
     this._value = _changes_._model.currentValue;
     if (!_changes_._model.firstChange) {
       this.validator();
-      console.log(this._modelObj);
     }
     else {
       this.prepareValidationMsgs();
@@ -68,26 +67,31 @@ export class SfValidateDirective implements OnChanges, OnInit {
   }
 
   public callValidation(): any {
+    debugger;
     this._errorText = "";
     this._valid = true;
     const _element_ = this._el.nativeElement;
     if (!this._isUndefinedOrNull()) {
       if (this._value !== undefined && this._value !== null && this._value.toString().length > 0) {
         if (this.isEmail(_element_)) {
-          this._valid = this.validateEmail(this._value);
+          this._valid = (this._valid && this.validateEmail(this._value));
         }
-        else if (this._option.hasOwnProperty("size")) {
-          this._valid = this.sizeValidator(this._option["size"]);
+        if (this._option.hasOwnProperty("size")) {
+          this._valid = (this._valid && this.sizeValidator(this._option["size"]));
         }
-        else if (this._option.hasOwnProperty("range")) {
-          this._valid = this.rangeValidator(this._option["range"]);
+        if (this._option.hasOwnProperty("range")) {
+          this._valid = (this._valid && this.rangeValidator(this._option["range"]));
         }
-        else if (this._option.hasOwnProperty("pattern")) {
-          this._valid = this.patternValidator(this._option["pattern"]);
+        if (this._option.hasOwnProperty("pattern")) {
+          this._valid = (this._valid && this.patternValidator(this._option["pattern"]));
         }
       }
       else if (this._option.hasOwnProperty("required")) {
-        this._valid = this.requiredValidator(this._option["required"]);
+        this._valid = (this._valid && this.requiredValidator(this._option["required"]));
+      }
+      
+      if (this._option.hasOwnProperty("custom")) {
+        this._valid = (this._valid && this.customValidator(this._option["custom"]));
       }
 
       this.setValidity();
@@ -222,12 +226,6 @@ export class SfValidateDirective implements OnChanges, OnInit {
     return _result_;
   }
 
-  public patternValidator(_pattern_) {
-    var patt = new RegExp(_pattern_);
-    return patt.test(this._value);
-  }
-
-
   public sizeValidator(_sizeOptions_) {
     let _result_ = true;
 
@@ -282,6 +280,18 @@ export class SfValidateDirective implements OnChanges, OnInit {
     }
     return _result_;
   }
+
+  public patternValidator(_pattern_) {
+    var patt = new RegExp(_pattern_);
+    return patt.test(this._value);
+  }
+
+  public customValidator(fn:Function) {
+    debugger;
+    return fn();
+  }
+
+
 
   public requiredValidator(_requiredOptions_): boolean {
     let _result_ = true;
